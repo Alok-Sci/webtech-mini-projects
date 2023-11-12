@@ -15,6 +15,7 @@
             * {
                 margin: 0;
                 padding: 0;
+                box-sizing: border-box;
                 /* border: 1px solid red; */
             }
 
@@ -31,10 +32,17 @@
             } */
             body {
                 width: 100vw;
-                height: 98vh;
+                height: 100vh;
                 display: flex;
                 flex-direction: column;
                 background-color: #ccc0ba;
+                padding: 2%
+            }
+            header{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
 
             header h1,
@@ -42,12 +50,20 @@
                 font-family: "Colosseum W00 X Bold Italic";
                 color: #670524;
                 letter-spacing: 3px;
-                filter: drop-shadow(3px 3px px #000);
+                /* filter: drop-shadow(3px 3px 3px #000); */
+            }
+            header p{
+                font-family: "Colosseum W00 X Bold Italic";
+                color: #670524;
+                font-size: 4vh;
+                /* width: 100%; */
+                /* justify-self: center; */
+
             }
 
             main {
-                width: 55vh;
-                height: 100vh;
+                width: 50vh;
+                height: 110vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -868,7 +884,7 @@
 
         <header>
             <h1>SCIENTIST</h1>
-
+            <p>🏮🧨Wishing you all a very <b>🎇Happy Diwali🎆</b></p>
         </header>
 
         <main class="row">
@@ -898,6 +914,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- scientist  -->
             <div class="col body">
                 <div class="row head">
                     <div class="col hairs">
