@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Div Tag: Task 5</title>
+    <style>
+        /* remove default margin and padding */
+        *{
+            margin: 0;
+            padding: 0;
+            box-shadow: border-box;
+        }
+
+        /* flexbox  */
+        body, .row{
+            display: flex;
+            flex-direction: row;
+        }
+        .main, .col{
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* width & height */
+        body{
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .main{
+            width: 90vh;
+            height: 90vh;
+        }
+        .box{
+            width: 16.66%;
+            height: 100%;
+        }
+        
+        /* width utility classes  */
+        .w-16{
+            width: 16.66%;
+        }
+        .w-50{
+            width: 50%;
+        }
+        .w-66{
+            width: 66.66%;
+        }
+        .w-100{
+            width: 100%;
+        }
+        /* height utility classes  */
+        .h-16{
+            height: 16.66%;
+        }
+        .h-25{
+            height: 25%;
+        }
+        .h-32{
+            height: 32.66%;
+        }
+        .h-50{
+            height: 50%;
+        }
+        .h-100{
+            height: 100%;
+        }
+
+        /* color */
+        .dark-orange{
+            background-color: #ec1a24ff;
+        }
+        .light-orange{
+            background-color: #f36d7fff;
+        }
+        .pink{
+            background-color: #f16faaff;
+        }
+        .violet{
+            background-color: #2f3193ff;
+        }
+        .maroon{
+            background-color: #92278fff;
+        }
+        .grey{
+            background-color: #7da7d9ff;
+        }
+        .light-blue{
+            background-color: #6dcef7;
+        }
+        .navy{
+            background-color: #0076a3;
+        }
+        .redish-grey{
+            background-color: #8780bc;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- row1 -->
+        <div class="row w-100 h-16">
+            <div class="col w-16 h-100 box dark-orange"></div>
+            <div class="col w-66 h-100 light-orange"></div>
+            <div class="col w-16 h-100 box dark-orange"></div>
+        </div>
+        <!-- row2 -->
+        <div class="row w-100 h-25">
+            <div class="col w-50 h-100 pink"></div>
+            <div class="col w-50 h-100">
+                <div class="row w-100 h-50 violet"></div>
+                <div class="row w-100 h-50">
+                    <div class="col w-50 h-100 maroon"></div>
+                    <div class="col w-50 h-100 grey"></div>
+                </div>
+            </div>
+        </div>
+        <!-- row3 -->
+        <div class="row w-100 h-25">
+            <div class="col w-50 h-100 light-blue"></div>
+            <div class="col w-50 h-100 pink"></div>
+        </div>
+        <!-- row4 -->
+        <div class="row w-100 h-32">
+            <!-- row4 col1 -->
+            <div class="col w-50 h-100">
+                <div class="row h-50 w-100 navy"></div>
+                <div class="row h-50 w-100 violet"></div>
+            </div>
+            <!-- row4 col2 -->
+            <div class="col w-50 h-100 redish-grey"></div>
+        </div>
+    </div>
+</body>
+</html>

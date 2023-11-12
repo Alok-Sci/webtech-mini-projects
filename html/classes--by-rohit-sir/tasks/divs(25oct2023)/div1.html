@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Div Tag: Task 1</title>
+    <style>
+        /* remove default margin and padding */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* flexbox */
+        body{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .main, .box{
+            display: flex;
+            flex-direction: column;
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 50%;
+        }
+
+        /* width & height */
+        .main{
+            width: 90vh;
+            height: 90vh;
+        }
+        .box{
+            width: 50%;
+            height: 100%;
+        }
+        .col{
+            width: 20%;
+            height: 100%;
+        }
+
+        /* colors */
+        .violet{
+            background-color: #2e3093ff;
+        }
+        .blue{
+            background-color: #00aceeff;
+        }
+        .orange{
+            background-color: #f36423ff;
+        }
+        .yellow{
+            background-color: #feff00ff;
+        }
+        .green{
+            background-color: #005f21ff;
+        }
+        .pink{
+            background-color: #a665a6ff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="row">
+            <div class="box violet"></div>
+            <div class="box blue"></div>
+        </div>
+        <div class="row">
+            <div class="box blue"></div>
+            <div class="box">
+                <div class="row">
+                    <div class="box orange"></div>
+                    <div class="box yellow"></div>
+                </div>
+                <div class="row">
+                    <div class="box yellow"></div>
+                    <div class="box">
+                        <div class="row green"></div>
+                        <div class="row">
+                            <div class="col pink"></div>
+                            <div class="col violet"></div>
+                            <div class="col pink"></div>
+                            <div class="col violet"></div>
+                            <div class="col pink"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
