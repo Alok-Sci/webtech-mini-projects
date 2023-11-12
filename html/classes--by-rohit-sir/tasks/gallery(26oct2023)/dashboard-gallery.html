@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>HTML Dashboard Gallery</title>
+        <style>
+            /* remove default margin and padding */
+            * {
+                margin: 0;
+                padding: 0;
+                /* debug css    */
+                /* background: hsla(0, 67%, 87%, 0.7);
+                outline: 1px solid hsla(0, 81%, 85%, 0.7); */
+            }
+
+            /* flexbox */
+            body,
+            .row {
+                display: flex;
+                flex-direction: row;
+                /* gap: 15px; */
+                /* padding: 5px; */
+
+            }
+
+            .col {
+                display: flex;
+                flex-direction: column;
+                /* gap: 15px; */
+            }
+
+
+            body {
+                width: 100vw;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            /* size of main */
+            main {
+                width: 90vh;
+                height: 90vh;
+                margin-top: 20px;
+                background-color: #eeefefff;
+                border-radius: 4px;
+                filter: drop-shadow(2px 2px 2px);
+            }
+
+            /* dashboard */
+            .dashboard {
+                padding: 2vh;
+                width: 96%;
+                height: 96%;
+                justify-content: space-between;
+                gap: 2vh
+                    /* flex:1 */
+            }
+
+            /* dashboard columns' size */
+            .frame {
+                width: 50%;
+                height: 100%;
+            }
+
+            /* top row of first frame */
+            .frame.left>.row.top.main-card {
+                height: 40%;
+                /* position: relative; */
+            }
+
+
+            /* main card */
+            .main-card>.col {
+                height: 100%;
+                padding-left: 2vh;
+                background-color: white;
+                /* justify-content: stretch; */
+            }
+
+            /* main card 1st row  */
+            .main-card .button {
+                justify-content: end;
+                position: relative;
+            }
+
+            .main-card .button,
+            .main-card .content {
+                margin-top: 2vh;
+            }
+
+
+            /* main card button  */
+            .main-card .button button {
+                width: fit-content;
+                font-size: xx-small;
+                font-weight: light;
+                margin-right: 2vh;
+                color: white;
+                padding: 1vh;
+                background-color: #4788ee;
+                border: none;
+                border-radius: 2px;
+                box-shadow: inset 2px 2px 10px 2px #398bee;
+
+            }
+
+            /* main card 2nd row  */
+            .main-card .col .content {
+                width: 100%;
+                height: 90%;
+            }
+
+            /* main card content  */
+            .main-card .content .left {
+                width: 60%;
+                height: 100%;
+                padding-bottom: 2vh;
+                justify-content: space-between;
+                /* gap: 5vh; */
+                /* flex: 1; */
+                /* position: relative; */
+            }
+
+            /* main card's text content  */
+            .main-card .content .left .text {
+                width: 100%;
+                justify-content: space-between;
+                gap: 2vh;
+                /* position: absolute; */
+
+            }
+
+
+            /* main card heading  */
+            .main-card .content h1 {
+                width: 100%;
+                height: 50%;
+                font-size: larger;
+                font-weight: 100;
+                line-height: 1;
+            }
+
+            /* main card paragraph */
+            .main-card .content p {
+                width: 100%;
+                font-size: xx-small;
+                word-spacing: 1.5px;
+                line-height: 1.5;
+                margin: 0px;
+                padding-right: 20px;
+                gap: 0px;
+            }
+
+            /* direct child column of main card  */
+            .main-card .content .right.img {
+                width: 40%;
+                height: 100%;
+                justify-content: flex-end;
+                align-items: flex-end;
+                overflow: hidden;
+                object-fit: cover;
+                position: relative;
+
+            }
+
+            /* image of main card  */
+            .main-card .content .right.img img {
+                width: 100%;
+                /* height: 100%; */
+                object-fit: cover;
+                object-position: right bottom;
+                position: absolute;
+            }
+
+            /* main card dots container  */
+            .main-card .dots {
+                /* height: inherit; */
+                margin: 15px 20px;
+                justify-content: flex-end;
+                gap: .5vh;
+            }
+
+            /* main card dots  */
+            .main-card .content .left .dots .dot {
+                width: 1vh;
+                height: 1vh;
+                background-color: grey;
+                border-radius: 50%;
+            }
+
+            /* active dot */
+            .content .left .dots .dot.active {
+                background-color: orange;
+            }
+
+            /* card round edge */
+            .dashboard .main-card,
+            .card {
+                border-radius: 3px;
+            }
+
+            /* spacing between cards */
+            .frame.left,
+            .dashboard .cards,
+            .dashboard .cards>.col {
+                justify-content: space-between;
+                gap: 2vh;
+            }
+
+            /* bottom row of first frame */
+            .frame.left>.row.bottom.cards {
+                height: 60%;
+            }
+
+            /* dashboard's cards  */
+            .cards .card {
+                /* margin: .5em; */
+                height: 50%;
+                /* gap: 5%; */
+                color: white;
+                /* filter:brightness(100%); */
+                /* flex-grow: 1; */
+            }
+
+            /* image container of card image */
+            .card .img {
+                /* margin: 10px; */
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                /* flex: 1; */
+            }
+
+            /* cards' image  */
+            .card .img img {
+                /* width: 12vh; */
+                object-fit: cover;
+                height: 80%;
+                justify-content: space-between;
+                position: absolute;
+            }
+
+            /* cards' content */
+            .card .content {
+                width: inherit;
+                height: fit-content;
+                background-color: #00000055;
+                font-size: 2;
+                padding: 1vh;
+                justify-content: space-between;
+                gap: 1vh;
+                /* overflow: hidden; */
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+
+            /* cards' heading */
+            .card .content .heading {
+                font-size: .5em;
+                overflow: hidden;
+            }
+
+            .card .content .heading h1 {
+                font-size: .5em;
+                display: inline-block;
+            }
+
+            /* angle bracket inside cards' h1 */
+            .card .content .heading span.angle-bracket {
+                display: inline-block;
+            }
+
+
+            /* cards' paragraph */
+            .card .content p {
+                font-size: .1em;
+                line-height: 1.2;
+            }
+
+            /* dahsboard's right column cards stretch */
+            /* stretch the right side column/container of cards */
+            .frame.right .cards {
+                flex: auto;
+            }
+
+            /* stretch 1st card of col1 col1 */
+            .frame.left .cards .left .card:nth-child(1) {
+                height: calc((100%/12)*5);
+            }
+
+            /* stretch 2nd card of col1 col1 */
+            .frame.left .cards .left .card:nth-child(2) {
+                height: calc((100%/12)*7);
+            }
+
+            /* stretch 1st card of col1 col2 */
+            .frame.left .cards .right .card:nth-child(1) {
+                height: calc((100%/12)*7);
+            }
+
+            /* stretch 2nd card of col1 col2 */
+            .frame.left .cards .right .card:nth-child(2) {
+                height: calc((100%/12)*5);
+            }
+
+            /* stretch 1st card of col2 col1 */
+            .frame.right .cards .left .card:nth-child(1) {
+                height: calc((100%/12)*4);
+            }
+
+            /* stretch 2nd card of col2 col1 */
+            .frame.right .cards .left .card:nth-child(2) {
+                height: calc((100%/12)*3);
+            }
+
+            /* stretch 3rd card of col2 col1 */
+            .frame.right .cards .left .card:nth-child(3) {
+                height: calc((100%/12)*5);
+            }
+
+            /* stretch 1st card of col2 col2 */
+            .frame.right .cards .right .card:nth-child(1) {
+                height: calc((100%/12)*5);
+            }
+
+            /* stretch 2nd card of col2 col2 */
+            .frame.right .cards .right .card:nth-child(2) {
+                height: calc((100%/12)*4);
+            }
+
+            /* stretch 3rd card of col2 col2 */
+            .frame.right .cards .right .card:nth-child(3) {
+                height: calc((100%/12)*3);
+            }
+
+            /* utility classes */
+            .justify-end {
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+            }
+
+            /* color utility classes */
+            .bg-white {
+                background-color: #fffefeff;
+            }
+
+            .bg-orange {
+                background-color: #ce493cff;
+            }
+
+            .bg-olive {
+                background-color: #8eb120;
+            }
+
+            .bg-brown {
+                background-color: #79312b;
+            }
+
+            .bg-light-blue {
+                background-color: #aacad6;
+            }
+
+            .bg-green {
+                background-color: #7bc0a0;
+            }
+
+            .bg-violet {
+                background-color: #111e54ff;
+            }
+
+            .bg-yellow {
+                background-color: #f8bd27ff;
+            }
+
+            .bg-blue {
+                background-color: #2a70e8ff;
+            }
+
+            .bg-black {
+                background-color: #2e2523;
+            }
+        </style>
+
+    </head>
+
+    <body class="col-8">
+
+        <main>
+            <!-- col1 -->
+
+            <div class="row dashboard">
+                <div class="col frame left">
+                    <div class="row main-card top">
+                        <div class="col bg-white">
+                            <div class="row button">
+                                <button>Upgrade to Google+</button>
+                            </div>
+                            <div class="row content">
+                                <div class="col left">
+                                    <div class="col text">
+                                        <h1>Get more out of Google by using Google+</h1>
+                                        <p>Whether you're using Gmail, Search, YouTube, Maps, or Blogger, Google+ gives
+                                            you
+                                            new
+                                            ways
+                                            to share the right things with the right people.</p>
+                                    </div>
+                                    <div class="row dots">
+                                        <div class="col dot active"></div>
+                                        <div class="col dot"></div>
+                                        <div class="col dot"></div>
+                                    </div>
+                                </div>
+                                <div class="col right img">
+                                    <img src="dashboard.png"
+                                         alt="google-abstract-logo"
+                                         class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bottom cards">
+                        <div class="col left">
+                            <div class="col card bg-orange">
+                                <div class="img">
+                                    <img src="blogger.png"
+                                         alt=""
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Blogger</h1> 
+                                        <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Easily share your posts on Google+ so that you can expand the audience for your
+                                        blog.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col card bg-olive">
+                                <div class="row img">
+                                    <img src="android.png"
+                                         alt=""
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Android</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Get photos that upload as you take them, group chats instead of multiple texts,
+                                        and
+                                        video chats with friends.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col right">
+                            <div class="col card bg-brown">
+                                <div class="img">
+                                    <img src="chrome.png"
+                                         alt=""
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Chrome</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Recommend sites, share pages, and always stay up-to-date with the people in your
+                                        Google+ circles.</p>
+                                </div>
+                            </div>
+                            <div class="col card bg-yellow">
+                                <div class="img">
+                                    <img src="music.png"
+                                         alt=""
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Music</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Give the people in your Google+ circles a free listen to the songs you buy
+                                        through
+                                        Google Music.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- col2 -->
+                <div class="col frame right">
+                    <!-- col2 col1 -->
+                    <div class="row cards">
+                        <div class="col left">
+                            <div class="col card bg-light-blue">
+                                <div class="img">
+                                    <img src="mail.png"
+                                         alt="google-mail-logo"
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Gmail</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Video Chat with up to nine people at once, find emails from the people you care
+                                        about,
+                                        share phtoos effortlessly and more.</p>
+                                </div>
+                            </div>
+                            <div class="col card bg-green">
+                                <div class="img">
+                                    <img src="news.png"
+                                         alt="google-news-logo"
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>News</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Get the latest from your favorite authors, and see the articles your friends are
+                                        sharing
+                                        right in Google News.</p>
+                                </div>
+                            </div>
+                            <div class="col card bg-violet">
+                                <div class="img">
+                                    <img src="earth.png"
+                                         alt="google-earth-logo"
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Earth</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Share images of the places you visit in Google Earth to just the right people
+                                        using
+                                        Google+.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col right">
+                            <div class="col card bg-yellow">
+                                <div class="img">
+                                    <img src="maps.png"
+                                         alt="google-maps-logo"
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Maps</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Send directions and share the places you love with just the right people, right
+                                        from
+                                        Google Maps.</p>
+                                </div>
+                            </div>
+                            <div class="col card bg-blue">
+                                <div class="img">
+                                    <img src="search.png"
+                                         alt="google-search-logo"
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Search</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>Search everything on the web, plus your photos, posts from your circles, and the
+                                        things
+                                        your friends have shared with you.</p>
+                                </div>
+                            </div>
+                            <div class="col card bg-black">
+                                <div class="img">
+                                    <img src="youtube.png"
+                                         alt="youtube-icon"
+                                         class="img-fluid">
+                                </div>
+                                <div class="content">
+                                    <div class="heading">
+                                        <h1>Youtube</h1> <span class="angle-bracket"><svg
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 height="1em"
+                                                 viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                <style>
+                                                    svg {
+                                                        fill: #ffffff
+                                                    }
+                                                </style>
+                                                <path
+                                                      d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                            </svg></span>
+                                    </div>
+                                    <p>See which videos your friends are sharing and watch any video with up to nine
+                                        firends
+                                        at
+                                        once.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+
+    </body>
+
+</html>
