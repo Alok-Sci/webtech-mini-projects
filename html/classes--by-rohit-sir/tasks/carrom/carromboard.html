@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Carrom Board in HTML</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body,
+            main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .row,
+            .base-circle,
+            .concentric-circle {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .col {
+                display: flex;
+                flex-direction: column;
+            }
+
+            body {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            main {
+                width: 90vh;
+                height: 90vh;
+            }
+
+            .frame {
+                background-color: #202218;
+                border-radius: 10px;
+                box-shadow: inset 3px 3px 5px 1px #888888;
+            }
+
+            .inner-board {
+                width: 85%;
+                height: 85%;
+                border-radius: 10px;
+                background-color: #f8ddb4;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-shadow: inset 6px 6px 9px #42332dff;
+            }
+
+            .nethole-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                height: 7%;
+            }
+
+            .nethole {
+                width: 7%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: #202218;
+                box-shadow: inset 1px 1px 3px 3px #42332dff 
+            }
+
+            .mid-board {
+                width: 100%;
+                height: 86%;
+                justify-content: center;
+                align-items: center;
+                /* flex: 1; */
+            }
+
+            .mid-board .col {
+                width: 100%;
+                height: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .mid-board .mid-baseline-group {
+                width: 86%;
+                height: 100%;
+            }
+
+            .mid-board .rect {
+                border-radius: 50px;
+                border: 1px solid #42332dff;
+            }
+
+            .mid-board .hrect {
+                width: 72%;
+                height: 10%;
+                background-color: transparent;
+                justify-content: space-between;
+                gap: 10px;
+            }
+            
+            .hrect .base-circle {
+                width: 10%;
+                height: 100%;
+                position: relative;
+            }
+            .mid-board .vrect {
+                width: 10%;
+                height: 100%;
+                background-color: transparent;
+                justify-content: space-between;
+                align-content: space-between;
+                gap: 10px;
+                position: relative;
+            }
+            
+            .vrect .base-circle {
+                width: 100%;
+                height: 10%;
+            }
+            
+            .base-circle {
+                border: 1px solid #42332dff;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .base-circle .circle {
+                width: 80%;
+                height: 80%;
+                border-radius: 50%;
+                background-color: #7e2a17;
+            }
+            .content{
+                flex: 1;
+            }
+            .mid-baseline-group .col{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .concentric-circle{
+                width: 50%;
+                height: 50%;
+                border: 1px solid #42332dff;
+                border-radius: 50%;
+                background-color: transparent;
+                justify-content: center;
+                align-items: center;
+            }
+            .concentric-circle .circle{
+                width: 15%;
+                height: 15%;
+                border-radius: 50%;
+                background-color: #7e2a17;
+            }
+            
+            /* border utility classes */
+            .bdt{
+                border-top: 5px solid #42332dff !important;
+            }
+            .bdb{
+                border-bottom: 5px solid #42332dff !important;
+            }
+            .bdl{
+                border-left: 5px solid #42332dff !important;
+            }
+            .bdr{
+                border-right: 5px solid #42332dff !important;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <!-- carrom board border -->
+
+        <main class="frame">
+            <!-- inner carrom -->
+            <div class="inner-board">
+                <!-- outer first row-->
+                <div class="row nethole-container">
+                    <div class="circle nethole"></div>
+                    <div class="circle nethole"></div>
+                </div>
+                <!-- outer mid row -->
+                <div class="row mid-board">
+                    <div class="col">
+                        <!-- baseline top-->
+                        <div class="row rect hrect bdt">
+                            <!-- base circle 1 -->
+                            <div class="circle base-circle">
+                                <div class="circle"></div>
+                            </div>
+                            <!-- base circle 2 -->
+                            <div class="circle base-circle">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <!-- mid baseline group -->
+                        <div class="row mid-baseline-group ">
+                            <!-- baseline vertical left -->
+                            <div class="col rect vrect bdl">
+                                <!-- base circle 1 -->
+                                <div class="circle base-circle top">
+                                    <div class="circle"></div>
+                                </div>
+                                <p class="content"></p>
+                                <!-- base circle 2 -->
+                                <div class="circle base-circle bottom">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <!-- mid concentric circle -->
+                                <div class="circle concentric-circle">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <!-- baseline vertical right -->
+                            <div class="col rect vrect bdr">
+                                <!-- base circle 1 -->
+                                <div class="circle base-circle">
+                                    <div class="circle"></div>
+                                </div>
+                                <p class="content"></p>
+                                <!-- base circle 2 -->
+                                <div class="circle base-circle">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- baseline bottom-->
+                        <div class="row rect hrect bdb">
+                            <!-- base circle 1  -->
+                            <div class="circle base-circle">
+                                <div class="circle"></div>
+                            </div>
+                            <!-- base circle 2 -->
+                            <div class="circle base-circle">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- outer last row -->
+                <div class="row nethole-container">
+                    <div class="circle nethole"></div>
+                    <div class="circle nethole"></div>
+                </div>
+            </div>
+
+        </main>
+
+    </body>
+
+</html>
