@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>HTML Navbar Types</title>
+
+        <!-- wolf sans font inclusion -->
+        <link href="https://www.dafontfree.net/embed/d29sZi1zYW5zLXJlZ3VsYXImZGF0YS80Mi93LzkzODE4L1dvbGYgU2FucyBSZWd1bGFyLnR0Zg" rel="stylesheet" type="text/css"/>
+        <style>
+            /* dark larch font inclusion */
+            @font-face{
+                font-family: "dark-larch";
+                src: url("Dark-Larch-PERSONAL-USE-ONLY.ttf.woff") format(woff);
+            }
+            .nav1, .nav2, .nav3 {
+                font-family: 'wolf-sans-regular', sans-serif;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                background-color: white;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            main {
+                width: 100vh;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                background-color: white;
+            }
+
+            nav {
+                border-radius: 3px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            nav ul {
+                list-style: none;
+            }
+
+            nav ul li {
+                display: inline-block;
+                padding: 10px;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .nav1 {
+                background-color: #010001;
+                color: white;
+                width: 80%;
+                font-size: x-small;
+            }
+            .nav1 ul li{
+                padding: 10px 15px;
+            }
+
+            .nav2 {
+                color: white;
+                width: 85%;
+                font-size: small;
+            }
+
+            .nav2 ul {
+                width: 100%;
+                display: flex;
+                gap: 5px;
+                justify-content: space-between;
+            }
+
+            .nav2 ul li {
+                flex: 1;
+                border-radius: 3px;
+                text-align: center;
+                background-color: #f68f57;
+            }
+
+            .nav3 {
+                color: white;
+                width: 90%;
+                font-size: small;
+            }
+
+            .nav3 ul {
+                width: 100%;
+                display: flex;
+                gap: 8px;
+                justify-content: space-between;
+            }
+
+            .nav3 ul li {
+                flex: 1;
+                border-radius: 3px;
+                text-align: center;
+                background-color: #3bb44a;
+                padding: 3px;
+            }
+
+            .nav4 {
+                background-color: #7491e2;
+                font-family: "dark-larch", "sans";
+                color: white;
+                width: 80%;
+                margin-top: 50px;
+            }
+
+            .nav4 ul{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 30px;
+            }
+
+            .nav4 ul li .circle{
+                width: 60px;
+                height: 60px;
+                margin-top: -50px; /* decrease 50px margin from top of navbar */
+                margin-bottom: -50px; /* decrease 50px margin from bottom of navbar */
+                border-radius: 50%;
+                border: 5px solid white;
+                background-color: #7491e2;
+                
+                /* position the circle*/
+                transform: translateY(35%); /* adjust Y axis positioning of circle */
+                left: -50px; /* adjust horizontal positioning of the circle */
+                top: 10px; /* adjust vertical positioning of the circle */
+
+                /* center the image vertically and horizontally */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+            .nav4 img{
+                width: 60%;
+                height: 60%;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <main>
+            <nav class="nav1">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">COMPANY</a></li>
+                    <li><a href="#">NEWS</a></li>
+                    <li><a href="#">PACKAGES</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#">SEARCH</a></li>
+                </ul>
+            </nav>
+            <nav class="nav2">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                    <li><a href="#">BLOG</a></li>
+                </ul>
+            </nav>
+            <nav class="nav3">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Company</a></li>
+                </ul>
+            </nav>
+            <nav class="nav4">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li>
+                        <div class="circle">
+                            <img src="avatar.png" alt="avatar icon">
+                        </div>
+                    </li>
+                    <li><a href="#">SERVICES</a></li>
+                    <li><a href="#">REACH US</a></li>
+                </ul>
+            </nav>
+
+        </main>
+
+    </body>
+
+</html>
