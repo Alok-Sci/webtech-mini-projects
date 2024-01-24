@@ -1,0 +1,750 @@
+html
+{
+    font-size: 5px;
+}
+
+:root
+{
+    --shadow: white;
+    --secondary: #FF9671;
+    --primary: #845EC2;
+    --white: rgba(255, 255, 255, 0.6);
+    --gradient: linear-gradient(to top right, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F);
+    --gradient-opposite: linear-gradient(to top right, #FFC75F, #FF9671, #FF6F91, #D65DB1, #845EC2);
+    --round-edge: 3vmin;
+    
+    --font-size-base: .5rem;
+}
+
+
+*,
+::after,
+::before
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: var(--round-edge);
+    font-weight: bold;
+    color: var(--shadow);
+    /* font-size: 1.5rem; */
+    font-family: "Lulo Clean W01 One Bold";
+}
+
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-opposite);
+    filter: blur(80%)
+}
+
+.row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.col
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.world-clock .title,
+.world-clock .clock .clock,
+.world-clock .time
+{
+    /* margin-bottom: 3rem; */
+    background-color: var(--secondary);
+    color: var(--bg-primary);
+}
+
+main
+{
+    min-width: 280px;
+    min-height: fit-content;
+    width: 90vw;
+    background: var(--gradient);
+    background-color: #ffffff75;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 1px 2px var(--shadow);
+    /* background-color: green; */
+}
+
+.world-clock
+{
+    justify-content: center;
+    align-items: center;
+    padding: 3vmin;
+    border-radius: var(--round-edge);
+}
+
+.world-clock .body
+{
+    min-width: 100%;
+    min-height: 100%;
+    gap: 4em;
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+.world-clock .title
+{
+    width: 100%;
+    flex-grow: 1;
+    /* height: 20%; */
+    padding-block: 1.7em;
+    justify-content: center;
+    font-size: 2vmin;
+    text-transform: uppercase;
+    background-color: var(--shadow);
+}
+
+.world-clock .title h1
+{
+    background-image: var(--gradient);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+}
+
+.world-clock .country-clock
+{
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 40vmin;
+    /* border: 1px solid var(--secondary); */
+    /* align-items: space-between; */
+    backdrop-filter: blur(80%);
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* scrollbar-color: var(--primary); */
+    /* scro */
+    position: relative;
+    /* z-index: 99999; */
+}
+/* no clock alert message  */
+.country-clock #no-clock-alert
+{
+    font-size: 3vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vmin;
+    color: var(--white);
+    /* margin-block: auto; */
+}
+/* add navigation buttons to left and right  */
+.country-clock:hover .nav
+{
+    font-size: 7vmin;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    position: absolute;
+    top: 0;
+    /* transform: translateY(-50%); */
+    width: 20vw;
+    /* background-color: black; */
+    /* width: 15vmin; */
+    /* border: 3px solid black; */
+    height: 100%;
+    z-index: 99999;
+    cursor: pointer;
+    transition: padding 0.3s ease;
+}
+.country-clock .nav *
+{
+    display: none;
+    /* font-size: 7vmin; */
+    font-size: 10vmin;
+}
+.country-clock:hover .nav *
+{
+    display: block;
+    position: relative;
+    z-index: 999999;
+    fill: var(--secondary);
+}
+.country-clock:hover .nav #gradient{
+    background-image: linear-gradient(to top right, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F)
+}
+.country-clock .nav:hover{
+    /* font-size: 10vmin; */
+}
+.country-clock .nav.nav-prev
+{
+    left: 0;
+    justify-content: flex-start; 
+    box-shadow: inset 35vmin 0px 100px -100px white;
+    padding-left: 4vmin;
+}
+.nav.nav-prev:hover{
+    padding-left: 2vmin;
+    /* margin-left: -3vmin; */
+}
+.country-clock .nav.nav-next
+{
+    right: 0;
+    justify-content: flex-end; 
+    box-shadow: inset -35vmin 0px 100px -100px white;
+    padding-right: 5vmin;
+}
+.nav.nav-next:hover{
+    padding-right: 3vmin;
+    /* margin-left: -3vmin; */
+}
+
+/* if child of .country-clock is not last child   */
+
+/* column inside clock conatiner  */
+.country-clock>.col
+{
+    margin-right: 3vmin;
+    /* flex-grow: 1; */
+    background-color: var(--white);
+    min-width: min-content;
+    /* max-height: 40vmin; */
+    justify-content: space-between;
+    gap: 4rem;
+    align-items: center;
+    padding: 5rem;
+    position: relative;
+    z-index: 2;
+    /* overflow: hidden;   */
+}
+
+.country-clock> :last-child
+{
+    margin-right: 0;
+}
+/* hidden: delete clock icon over clock card  */
+.country-clock>.col::after
+{
+    content: "\f067";
+    font-family: 'FontAwesome';
+    font-size: 10vmin;
+    /* color: var(--white); */
+    /* -webkit-background-clip: text; */
+    position: absolute;
+    background-image: var(--gradient);
+    /* background: white; */
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 18vmin;
+    transform: translate(-50%, -49%) rotate(45deg);
+    transition: all 0.3s ease;
+    display: none;
+    pointer-events: none;
+}
+/* display: delete clock icon on hover  */
+.country-clock>.col:hover::after
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* country */
+.country-clock .country
+{
+    min-width: 35vmin;
+    max-width: 35vmin;
+    min-height: 15%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-content: space-between;
+    background-color: var(--shadow);
+    /* box-shadow: inset 0px 0px 10px var(--secondary); */
+}
+
+/* country flag  */
+.country-clock .country .flag
+{
+    min-width: 12vmin;
+    min-height: 8vmin;
+    margin-block: 0;
+    padding-block: 0;
+    background-image: var(--icon-flag);
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0px 0px 10px var(--primary);
+}
+
+/* country name  */
+.country-clock .country .name
+{
+    padding-right: 1vmin;
+    /* max-width: 50%; */
+    text-transform: uppercase;
+    font-size: 2.1vmin;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+/* country name paragraph for gradient */
+.country-clock .country .name p
+{
+    max-width: 80%;
+    background-image: var(--gradient);
+    color: transparent;
+    -webkit-background-clip: text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.country-clock .clock
+{
+    width: 100%;
+    /* height: 60%; */
+    /* background-color: yellow; */
+}
+
+.country-clock .time
+{
+    width: 100%;
+    /* height: 15%; */
+    padding-block: 1.4em;
+    background-image: var(--gradient);
+    font-family: "NewhouseDTPro-Regular";
+    color: var(--white);
+    font-size: 2vmin;
+    justify-content: space-evenly;
+}
+
+.world-clock .search
+{
+    align-items: center;
+    min-width: 70vmin;
+    width: 100%;
+    flex-grow: 1;
+    border-radius: var(--round-edge);
+    background-color: var(--shadow);
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.world-clock .search select
+{
+    min-width: 80vmin;
+    min-height: 10vmin;
+    font-size: 2vmin;
+    /* or any size you prefer */
+    padding-inline: 3vmin;
+    flex-grow: 1;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    caret-color: #D65DB1;
+    transition: letter-spacing 0.3s ease, padding 0.3s ease;
+    background-image: var(--gradient);
+    color: transparent;
+    -webkit-background-clip: text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+option:focus,
+select:focus
+{
+    border: 0;
+    outline: 0;
+}
+
+.world-clock .search select:hover
+{
+    letter-spacing: .4vmin;
+    padding-right: 3vmin;
+}
+
+.world-clock .search select option
+{
+    text-overflow: ellipsis;
+    background-color: var(--shadow);
+    color: var(--primary);
+    /* font-size: 1.7vmin; */
+}
+
+.world-clock .search select option:hover
+{
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+.world-clock .search select option:checked
+{
+    background: var(--primary);
+    color: var(--shadow);
+}
+
+/* Style the dropdown options */
+select option
+{
+    text-overflow: ellipsis;
+    background: linear-gradient(to right, #ff0000, #ff9900);
+    color: white;
+    padding: 10px;
+}
+
+/* Style the selected option */
+select option:checked
+{
+    background: linear-gradient(to right, #ff0000, #ff9900);
+    color: red;
+}
+
+/* search icon  */
+.world-clock .search>.icon
+{
+    font-size: 6vmin;
+    /* or any size you prefer */
+    padding-block: 2.5vmin;
+    padding-inline: 7vmin;
+    min-width: 20vmin;
+    /* width: auto; */
+    min-height: min-content;
+    height: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient);
+    color: white;
+    transition: all 0.2s ease-in-out
+}
+
+/* search icon hover  */
+.world-clock .search .icon:hover
+{
+    color: var(--shadow);
+    padding-inline: 7.5vmin;
+}
+
+/* analog clock  */
+.clock .clock
+{
+    width: 23vmin;
+    height: 23vmin;
+    margin-inline: 3vmin;
+    background: var(--gradient);
+    box-shadow: 3px 3px 0px 25px var(--gradient), 0px 0px 3px 8px inset var(--shadow);
+    /* shadow */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    /* filter: drop-shadow(5px 5px 5px 5px); */
+}
+
+.clock .clock::before
+{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: .4vh;
+    /* Adjust this value to control the border width */
+    bottom: .4vh;
+    /* Adjust this value to control the border width */
+    left: .4vh;
+    /* Adjust this value to control the border width */
+    right: .4vh;
+    /* Adjust this value to control the border width */
+    background: white;
+    border-radius: 50%;
+    /* Adjust this value to control the inner border radius */
+}
+
+.clock .clock .col
+{
+    position: absolute;
+    z-index: 2;
+}
+
+.num
+{
+    width: 10%;
+    height: 100%;
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5vh;
+    justify-content: start;
+    /* border: 1px solid red */
+}
+
+/* counting of hours */
+span
+{
+    font-size: 3vmin;
+    font-weight: 700;
+    font-family: "Coptic Bold";
+    color: var(--white);
+    background: var(--gradient);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+/* lines of hours  */
+.hour-num
+{
+    width: 20%;
+    height: 4%;
+    /* color: var(--white); */
+    background: var(--gradient);
+    border-radius: 20px;
+    box-shadow: inset 1px 0px 2px var(--secondary);
+}
+
+/* clock numbering rotation */
+.one
+{
+    transform: rotateZ(30deg);
+}
+
+.two
+{
+    transform: rotateZ(60deg);
+}
+
+.three
+{
+    transform: rotateZ(90deg);
+}
+
+.four
+{
+    transform: rotateZ(120deg);
+}
+
+.five
+{
+    transform: rotateZ(150deg);
+}
+
+.six
+{
+    transform: rotateZ(180deg);
+}
+
+.seven
+{
+    transform: rotateZ(210deg);
+}
+
+.eight
+{
+    transform: rotateZ(240deg);
+}
+
+.nine
+{
+    transform: rotateZ(270deg);
+}
+
+.ten
+{
+    transform: rotateZ(300deg);
+}
+
+.eleven
+{
+    transform: rotateZ(330deg);
+}
+
+/* clock numbering character rotation fix */
+.one span
+{
+    transform: rotateZ(-30deg);
+}
+
+.two span
+{
+    transform: rotateZ(-60deg);
+}
+
+.three span
+{
+    transform: rotateZ(-90deg);
+}
+
+.four span
+{
+    transform: rotateZ(-120deg);
+}
+
+.five span
+{
+    transform: rotateZ(-150deg);
+}
+
+.six span
+{
+    transform: rotateZ(-180deg);
+}
+
+.seven span
+{
+    transform: rotateZ(-210deg);
+}
+
+.eight span
+{
+    transform: rotateZ(-240deg);
+}
+
+.nine span
+{
+    transform: rotateZ(-270deg);
+}
+
+.ten span
+{
+    transform: rotateZ(-300deg);
+}
+
+.eleven span
+{
+    transform: rotateZ(-330deg);
+}
+
+.needle
+{
+    width: 5%;
+    height: 100%;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    /* center the needles  */
+
+}
+
+.needle.hour-hand
+{
+    transform: rotateZ(28deg);
+}
+
+.needle.minute-hand
+{
+    transform: rotateZ(107deg);
+}
+
+.needle.second-hand
+{
+    transform: rotate(270deg);
+}
+
+.needle .hand
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.hand .hour
+{
+    width: 100%;
+    height: 50%;
+    background: var(--gradient);
+}
+
+.hand .minute
+{
+    width: 95%;
+    height: 65%;
+    background: var(--gradient);
+    position: relative;
+}
+
+.hand .second
+{
+    width: 40%;
+    height: 80%;
+    background: var(--gradient);
+    /* border: 1px solid var(--shadow); */
+    position: relative;
+}
+
+.hand .second:before
+{
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    left: 2px;
+    background: var(--shadow);
+    position: absolute;
+}
+
+.hour,
+.minute,
+.second
+{
+    /* border-radius: 50% 50% 0 0; */
+    /* make the needle edge */
+}
+
+
+.circle
+{
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    background-image: var(--gradient);
+    border: 2px solid var(--shadow);
+    box-shadow: 0px 0px 10px 0px var(--secondary);
+}
+
+.watermark
+{
+    z-index: 0;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Colosseum W00 Medium";
+    font-size: .1px;
+}
+
+.watermark .text
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.watermark .user
+{}
+
+/* analog clock ends */

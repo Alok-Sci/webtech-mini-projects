@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Keyboard using HTML, CSS & Bootstrap</title>
+        <!-- bootstrap cdn -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+              integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.min.js"
+                integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+
+        <!-- fontawesome cdn -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+              integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+                integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+
+        <style>
+            * {
+                /* background-color: rgba(255, 0, 0, 0.1);
+                border: 1px solid rgba(185, 136, 136, 0.499); */
+                text-align: center;
+                vertical-align: middle;
+                justify-content: center;
+                box-sizing: border-box;
+                font-size: 1em;
+                font-family: 'poppins';
+                /* font-weight: 00; */
+            }
+
+            .jcc {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .jcs {
+                justify-content: start;
+            }
+
+            .jce {
+                justify-content: end;
+            }
+
+            .aic {
+                align-items: center;
+            }
+
+            #keyboard-body {
+                background-color: #353737;
+            }
+
+            #tab {
+                width: 20%;
+            }
+
+            .btn {
+                background-color: #353737;
+                --bs-btn-whitespace: null;
+                /* --bs-btn-hover-color: #ffffff77; */
+                --bs-btn-hover-bg: #2c2e2e33;
+                --bs-btn-active-bg: #28292966;
+                /* --bs-btn-active-color: #ffffff33; */
+                /* --bs-btn-active-box-shadow: inset 0px -4px 4px 7px #282929; */
+                box-shadow: inset 0px -4px 4px 5px #282929;
+                /* --bs-btn-box-shadow: inset 0px 0px 1px 8px rgb(40, 41, 41); */
+            }
+
+            .btn:active {
+                box-shadow: inset 0px -4px 4px 8px #282929;
+                font-size: .95rem !important;
+                color: #ffffff99 !important;
+                /* padding: 2px !important; */
+            }
+
+            .alpha-key:active,
+            .no-press:active {
+                font-size: medium !important;
+            }
+        </style>
+
+    </head>
+
+    <body class="text-light vh-100 vw-100 jcc aic">
+
+        <header class="mb-3">
+            <h1 class="fw-bolder "
+                style="color: #353737;">KEYBOARD</h1>
+
+        </header>
+        <div class="gap-2 p-5 rounded-5"
+             style="min-width: 80rem; max-height: 35rem;"
+             id="keyboard-body">
+            <div class="row text-center justify-content-between">
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">Esc</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F1</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F2</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F3</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F4</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F5</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F6</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F7</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F8</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F9</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F10</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F11</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">F12</div>
+                <div class="col rounded-3 border border-4 border-dark btn text-light key">Del</div>
+            </div>
+            <div class="row mt-2">
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">~</div>
+                    <div class="row">`</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">!</div>
+                    <div class="row">1</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">@</div>
+                    <div class="row">2</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">#</div>
+                    <div class="row">3</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">$</div>
+                    <div class="row">4</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">%</div>
+                    <div class="row">5</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">^</div>
+                    <div class="row">6</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">&</div>
+                    <div class="row">7</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">*</div>
+                    <div class="row">8</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">(</div>
+                    <div class="row">9</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">)</div>
+                    <div class="row">0</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">_</div>
+                    <div class="row">-</div>
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row">+</div>
+                    <div class="row">=</div>
+                </div>
+                <div class="col-2 rounded-3 border border-4 border-dark btn text-light text-end key">
+                    <div class="row h-50"></div>
+                    <div class="row jce pe-2">Backspace</div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row h-50"></div>
+                    <div class="row jcs ps-2"
+                         id="tab">Tab</div>
+                </div>
+                <div class="col-11">
+                    <div class="row">
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            Q</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            W</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            E</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            R</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            T</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            Y</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            U</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            I</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            O</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            P</div>
+                        <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                            <div class="row">{</div>
+                            <div class="row">[</div>
+                        </div>
+                        <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                            <div class="row">}</div>
+                            <div class="row">]</div>
+                        </div>
+                        <div class="col rounded-3 border border-4 border-dark btn text-light key">
+                            <div class="row">|</div>
+                            <div class="row">\</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row h-50"></div>
+                    <div class="row jcs ps-2">Caps Lock</div>
+                </div>
+                <div class="col-9 me-2">
+                    <div class="row">
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            A</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            S</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            D</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            F</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            G</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            H</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            J</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            K</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            L</div>
+                        <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                            <div class="row">:</div>
+                            <div class="row">;</div>
+                        </div>
+                        <div class="col rounded-3 border border-4 border-dark btn text-light key">
+                            <div class="row">"</div>
+                            <div class="row">'</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col rounded-3 border border-4 border-dark btn text-light key">
+                    <div class="row h-50"></div>
+                    <div class="row jce pe-2">Enter</div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                    <div class="row h-50"></div>
+                    <div class="row jcs ps-2">Shift</div>
+                </div>
+                <div class="col-8 me-2">
+                    <div class="row">
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            Z</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            X</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            C</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            V</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            B</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            N</div>
+                        <div
+                             class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc fs-5 alpha-key key">
+                            M</div>
+                        <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                            <div class="row">&LeftAngleBracket;</div>
+                            <div class="row">&comma;</div>
+                        </div>
+                        <div class="col rounded-3 me-2 border border-4 border-dark btn text-light key">
+                            <div class="row">&RightAngleBracket;</div>
+                            <div class="row">&period;</div>
+                        </div>
+                        <div class="col rounded-3 border border-4 border-dark btn text-light key">
+                            <div class="row">?</div>
+                            <div class="row">/</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col rounded-3 border border-4 border-dark btn text-light key">
+                    <div class="row h-50"></div>
+                    <div class="row jce pe-2">Shift</div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc key">Ctrl</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc key">Fn</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc key">Win</div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc key">Alt</div>
+                <div class="col-4 rounded-3 me-2 border border-4 border-dark btn text-light space-key"></div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light text-nowrap jcc key">Alt Gr
+                </div>
+                <div class="col rounded-3 me-2 border border-4 border-dark btn text-light jcc key">Ctrl</div>
+                <div class="col-3 m-0 p-0">
+                    <div class="row text-center p-0 m-0">
+                        <div class="col me-2 d-flex flex-column justify-content-between ">
+                            <div class="row h-50"></div>
+                            <div
+                                 class="row rounded-2 border border-4 border-dark btn text-light text-center no-press key">
+                                &leftarrow;</div>
+                        </div>
+                        <div class="col px-0 me-2 btn-group-vertical">
+                            <div
+                                 class="row text-center mb-2 mx-0 rounded-2 border border-4 border-dark btn text-light jcc no-press key">
+                                &uparrow;</div>
+                            <div class="row mx-0 rounded-2 border border-4 border-dark btn text-light no-press key">
+                                &downarrow;</div>
+                        </div>
+                        <div class="col d-flex flex-column justify-content-between key">
+                            <div class="row h-50"></div>
+                            <div class="row rounded-2 border border-4 border-dark btn text-light jcc no-press">
+                                &rightarrow;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <audio src="./mech-keyboard-keystroke.mp3"
+               id="keystroke"></audio>
+        <audio src="./keyboard-spacebar-hit.mp3"
+               id="space-keystroke"></audio>
+
+        <footer class="mt-4">
+            <p class="fs-5 fw-bold"
+               style="color: #353737;">Copyright &copy; Alok Singh | 2023 | Time Taken: 4hrs + 1.5hrs</p>
+
+        </footer>
+
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const keys = document.querySelectorAll('.key');
+            const space = document.querySelector('.space-key');
+
+            keys.forEach(key => {
+                key.addEventListener('click', keyPress);
+            });
+
+            space.addEventListener('click', spacePress);
+
+            function keyPress() {
+                const keyStrokeAudio = document.querySelector('#keystroke');
+                keyStrokeAudio.currentTime = 0.02;
+                keyStrokeAudio.play();
+            }
+
+            function spacePress() {
+                const spaceKeyStrokeAudio = document.querySelector('#space-keystroke');
+                spaceKeyStrokeAudio.currentTime = 0.39;
+                spaceKeyStrokeAudio.play();
+            }
+        })
+    </script>
+
+</html>

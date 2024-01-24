@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Analog Clock</title>
+        <!-- coptic bold font  -->
+        <link href="https://db.onlinewebfonts.com/c/f2c4ffe579c4f6d93d6e943fdcbf2d47?family=Coptic+Bold" rel="stylesheet" type="text/css"/>
+        <!-- colosseum medium font -->
+        <link href="https://db.onlinewebfonts.com/c/7dbdec0c9f2e246a8eb71a72ca798b16?family=Colosseum+W00+Medium" rel="stylesheet" type="text/css"/>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                color: #443f3dff;
+            }
+
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+
+            main {
+                width: 90vh;
+                height: 90vh;
+                background-color: #7c2613ff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+            }
+
+            .clock {
+                width: 80%;
+                height: 80%;
+                background-color: #f6eee7ff;
+                box-shadow: 3px 0px 20px 35px #ba7e70, 0px 0px 3px 8px inset #d7cab9; /* shadow */
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            .col {
+                position: absolute;
+            }
+            
+            .num {
+                width: 10%;
+                height: 100%;
+                padding-top: 5%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                /* border: 1px solid red */
+            }
+            span{
+                font-size: 60px;
+                font-weight: 700;
+                font-family: "Coptic Bold";
+            }
+            
+            .hour-num {
+                width: 20%;
+                height: 5%;
+                background-color: #443f3dff;
+                border-radius: 20px;
+                box-shadow: inset 3px 0px 10px grey;
+            }
+
+            /* clock numbering rotation */
+            .one {
+                transform: rotateZ(30deg);
+            }
+            .two {
+                transform: rotateZ(60deg);
+            }
+            .three {
+                transform: rotateZ(90deg);
+            }
+            .four {
+                transform: rotateZ(120deg);
+            }
+            .five {
+                transform: rotateZ(150deg);
+            }
+            .six {
+                transform: rotateZ(180deg);
+            }
+            .seven {
+                transform: rotateZ(210deg);
+            }
+            .eight {
+                transform: rotateZ(240deg);
+            }
+            .nine {
+                transform: rotateZ(270deg);
+            }
+            .ten {
+                transform: rotateZ(300deg);
+            }
+            .eleven {
+                transform: rotateZ(330deg);
+            }
+
+            /* clock numbering character rotation fix */
+            .one span{
+                transform: rotateZ(-30deg);
+            }
+            .two span{
+                transform: rotateZ(-60deg);
+            }
+            .three span{
+                transform: rotateZ(-90deg);
+            }
+            .four span{
+                transform: rotateZ(-120deg);
+            }
+            .five span{
+                transform: rotateZ(-150deg);
+            }
+            .six span{
+                transform: rotateZ(-180deg);
+            }
+            .seven span{
+                transform: rotateZ(-210deg);
+            }
+            .eight span{
+                transform: rotateZ(-240deg);
+            }
+            .nine span{
+                transform: rotateZ(-270deg);
+            }
+            .ten span{
+                transform: rotateZ(-300deg);
+            }
+            .eleven span{
+                transform: rotateZ(-330deg);
+            }
+            
+            .needle {
+                width: 2%;
+                height: 100%;
+                align-self: start;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+
+                /* center the needles  */
+
+            }
+
+            .needle.hour-hand {
+                transform: rotateZ(28deg);
+            }
+
+            .needle.minute-hand {
+                transform: rotateZ(107deg);
+            }
+
+            .needle.second-hand {
+                transform: rotate(270deg);
+            }
+
+            .needle .hand {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: end;
+            }
+
+            .hand .hour {
+                width: 100%;
+                height: 50%;
+                background-color: black;
+            }
+
+            .hand .minute {
+                width: 90%;
+                height: 65%;
+                background-color: black;
+            }
+
+            .hand .second {
+                width: 50%;
+                height: 80%;
+                background-color: black;
+            }
+
+            .hour,
+            .minute,
+            .second {
+                border-radius: 50% 50% 0 0; /* make the needle edge */
+            }
+
+
+            .circle {
+                width: 5%;
+                height: 5%;
+                border-radius: 50%;
+                background-color: black;
+                box-shadow: inset 0px 0px 10px 0px grey;
+            }
+
+            .watermark{
+                z-index: 0;
+                height: 80%;
+                display: flex;
+                flex-direction: column;
+                font-family: "Colosseum W00 Medium";
+            }
+            .watermark .text{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+            }
+            .watermark .user{
+                font-size: small;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <main>
+            <div class="clock">
+                <!-- watermark inside clock -->
+                <div class="col watermark">
+                    <div class="text brand"><p>LA CROSSE<sup>&reg;</sup></p></div>
+                    <div class="text user"><em>ALOK SINGH</em></div>
+                </div>
+                <!-- clock numberings -->
+                <div class="col num twelve">
+                    <div class=" hour-num"></div>
+                    <span>12</span>
+                </div>
+                <div class="col num one">
+                    <div class=" hour-num"></div>
+                    <span>1</span>
+                </div>
+                <div class="col num two">
+                    <div class=" hour-num"></div>
+                    <span>2</span>
+                </div>
+                <div class="col num three">
+                    <div class=" hour-num"></div>
+                    <span>3</span>
+                </div>
+                <div class="col num four">
+                    <div class=" hour-num"></div>
+                    <span>4</span>
+                </div>
+                <div class="col num five">
+                    <div class=" hour-num"></div>
+                    <span>5</span>
+                </div>
+                <div class="col num six">
+                    <div class=" hour-num"></div>
+                    <span>6</span>
+                </div>
+                <div class="col num seven">
+                    <div class=" hour-num"></div>
+                    <span>7</span>
+                </div>
+                <div class="col num eight">
+                    <div class=" hour-num"></div>
+                    <span>8</span>
+                </div>
+                <div class="col num nine">
+                    <div class=" hour-num"></div>
+                    <span>9</span>
+                </div>
+                <div class="col num ten">
+                    <div class=" hour-num"></div>
+                    <span>10</span>
+                </div>
+                <div class="col num eleven">
+                    <div class=" hour-num"></div>
+                    <span>11</span>
+                </div>
+
+                <!-- clock needles -->
+                <!-- hour hand -->
+                <div class="col needle hour-hand">
+                    <div class="hand">
+                        <div class="hour"></div>
+                    </div>
+                </div>
+                <!-- minute hand -->
+                <div class="col needle minute-hand">
+                    <div class="hand">
+                        <div class="minute"></div>
+                    </div>
+                </div>
+                <!-- second hand -->
+                <div class="col needle second-hand">
+                    <div class="hand">
+                        <div class="second"></div>
+                    </div>
+                </div>
+
+                <!-- middle circle -->
+                <div class="col circle"></div>
+            </div>
+
+        </main>
+
+    </body>
+    <!-- clock logic  -->
+    <script>
+            function rotateClockHands() {
+                const hourHand = document.querySelector('.hour-hand');
+                const minuteHand = document.querySelector('.minute-hand');
+                const secondHand = document.querySelector('.second-hand');
+    
+                // set date 
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+    
+                // set needle rotation value
+                const hourRotation = (hours % 12) * 30 + (minutes / 60) * 30; // 30 degrees per hour, additional rotation for minutes
+                const minuteRotation = minutes * 6 + (seconds / 60) * 6; // 6 degrees per minute, additional rotation for seconds
+                const secondRotation = seconds * 6; // 6 degrees per second
+    
+                // rotate needles 
+                hourHand.style.transform = `rotate(${hourRotation}deg)`;
+                minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+                secondHand.style.transform = `rotate(${secondRotation}deg)`;
+            }
+
+            // Update clock hands every second
+            setInterval(rotateClockHands, 1000); 
+        </script>
+
+</html>

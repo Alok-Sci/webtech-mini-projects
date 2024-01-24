@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+              crossorigin="anonymous">
+
+        <!-- eurostil-extended font -->
+        <link href="https://db.onlinewebfonts.com/c/30aeb6486423207d6674ff2dfa404b49?family=Eurostile-ExtendedTwo"
+              rel="stylesheet"
+              type="text/css" />
+
+        <style>
+            /* pero webfont */
+            @import url(https://db.onlinewebfonts.com/c/d69596e4e215d60b6d9bbf37ea9e6ee2?family=Pero+W01+ExtraBold);
+
+            * {
+                margin: 0;
+                padding: 0;
+                color: white;
+            }
+
+            body {
+                width: 100vw;
+                height: 100vh;
+            }
+
+            body,
+            main {
+                justify-content: center;
+                align-items: center;
+            }
+
+            main {
+                width: 50vh;
+                height: 80vh;
+                padding: 3%;
+                border: 15px solid #7a664f;
+                border-radius: 56px;
+                background-color: #20211eff;
+            }
+
+            body {
+                display: flex;
+                flex-direction: row;
+            }
+
+
+            main {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .col {
+                border: 1px solid red;
+            }
+
+            .calc .top {
+                width: 100%;
+                height: 10%;
+                justify-content: space-between;
+            }
+
+            .calc .top .col {
+                width: 33.33%;
+            }
+
+            .calc .top .glass {
+                width: 40%;
+                background-color: #362712ff;
+            }
+
+            .calc .mid {
+                width: 100%;
+                height: 20%;
+            }
+
+            .calc .mid .display {
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+            }
+
+            .calc .mid .display .left {
+                width: 20%;
+            }
+
+            .calc .mid .display .left {
+                width: 20%;
+            }
+
+            .calc .bottom {
+                width: 100%;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <main class="calc">
+            <div class="row top">
+                <div class="col logo">CASIO</div>
+                <div class="col glass"></div>
+                <div class="col model">MX-8B</div>
+            </div>
+            <div class="row mid">
+                <div class="col display">
+                    <div class="row">
+                        <div class="col left">
+                            <div class="row">M</div>
+                            <div class="row">-</div>
+                            <div class="row">E</div>
+                        </div>
+                        <div class="col right">1`234`567.8</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row bottom">
+                <div class="col">
+                    <div class="row btn-row slim">
+                        <div class="col">MU</div>
+                        <div class="col">OFF</div>
+                    </div>
+                    <div class="row btn-row">
+                        <div class="col">MC</div>
+                        <div class="col">MR</div>
+                        <div class="col">M-</div>
+                        <div class="col">M+</div>
+                        <div class="col">÷</div>
+                    </div>
+                    <div class="row btn-row">
+                        <div class="col">√</div>
+                        <div class="col">7</div>
+                        <div class="col">8</div>
+                        <div class="col">9</div>
+                        <div class="col">×</div>
+                    </div>
+                    <div class="row btn-row">
+                        <div class="col">%</div>
+                        <div class="col">4</div>
+                        <div class="col">5</div>
+                        <div class="col">6</div>
+                        <div class="col">-</div>
+                    </div>
+                    <div class="row btn-row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col">1</div>
+                                <div class="col">2</div>
+                                <div class="col">3</div>
+                            </div>
+                            <div class="row">
+                                <div class="col">AC</div>
+                                <div class="col">0</div>
+                                <!-- <div class="col">·</div> -->
+                                <div class="col">=</div>
+                            </div>
+                        </div>
+                        <div class="col">+</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

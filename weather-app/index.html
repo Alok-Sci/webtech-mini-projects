@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Weather App</title>
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+    <script
+        src="script.js"
+        lang="javascript"
+        defer
+    ></script>
+
+    <!-- teco font  -->
+    <link
+        href="https://db.onlinewebfonts.com/c/1769cbf3b0514c7fad86318143c7ab6e?family=Teko"
+        rel="stylesheet"
+        type="text/css"
+    />
+
+
+    <!-- fontwesome  -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <!-- bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+    >
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+    ></script>
+
+</head>
+
+<body
+    class="container d-flex justify-content-center align-items-center"
+    style="min-width: 100%; min-height: 100vh;"
+>
+    <video
+        autoplay
+        loop
+        muted
+    >
+        <source
+            id="video-source"
+            src="https://static.vecteezy.com/system/resources/previews/009/913/504/mp4/rainy-evening-in-the-green-plain-free-video.mp4"
+            type="video/mp4"
+        >
+    </video>
+    <main class="row p-5  rounded-4 shadow-lg">
+
+        <!-- main frame start -->
+        <div class="col frame d-flex flex-column justify-content-between">
+            <!-- navigation bar start -->
+            <div class="row nav">
+
+                <!-- search bar -->
+                <div
+                    class="col input-group p-0 rounded-4"
+                    id="search"
+                >
+                    <input
+                        type="search"
+                        name=""
+                        class="form-control ps-5 py-3 m-0 fs-3 rounded-start-4"
+                        id="input-field"
+                        placeholder="Search for city..."
+                    >
+                    <button
+                        type="submit"
+                        class="btn btn-primary px-5 rounded-end-4 opacity-light"
+                        id="search-btn"
+                    ><i class=" fas fa-magnifying-glass fa-2x"></i></button>
+                </div>
+            </div>
+            <!-- navigation bar end -->
+
+            <!-- mid main section start  -->
+            <div
+                class="row py-4"
+                id="mid"
+            >
+                <div class="col-4 img ">
+                    <i class="fa fa-cloud-rain fa-10x" id="weather-icon"></i>
+                </div>
+                <!-- mid section start -->
+                <div class="col mid d-flex flex-column justify-content-between">
+                    <!-- city name -->
+                    <div
+                        class="row fw-bolder"
+                        id="city-name"
+                    >TimeZone</div>
+                    <!-- day name -->
+                    <div class="row day-name">Monday</div>
+                    <!-- temperature -->
+                    <div
+                        class="row temp"
+                        id="temperature"
+                    >21&deg;C</div>
+                </div>
+                <!-- mid left micro-data container  -->
+                <div
+                    class="col-3 d-flex flex-column justify-content-between"
+                    id="micro-data-container"
+                >
+                    <!-- humidity section -->
+                    <div class="row micro-data">
+                        <div class="col-5">
+                            <i class="fa fa-temperature-high fa-3x"></i>
+                        </div>
+                        <div class="col">
+                            <div class="row text-left">Humidity</div>
+                            <div
+                                class="row"
+                                id="humidity"
+                            >100%</div>
+                        </div>
+                    </div>
+                    <!-- wind speed section -->
+                    <div class="row micro-data">
+                        <div class="col-5">
+                            <i class="fa fa-wind fa-3x"></i>
+                        </div>
+                        <div class="col">
+                            <div class="row">Wind</div>
+                            <div
+                                class="row"
+                                id="wind-speed"
+                            >1km/h</div>
+                        </div>
+                    </div>
+                    <!-- air quality section -->
+                    <div class="row micro-data">
+                        <div class="col-5">
+                            <i class="fa fas far fa-eye fa-3x"></i>
+                        </div>
+                        <div class="col">
+                            <div class="row">Visibility</div>
+                            <div
+                                class="row"
+                                id="visibility"
+                            >234</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mid main section end -->
+
+            <!-- forecast section start  -->
+            <div
+                id="forecast"
+                class="row card-group justify-content-evenly gap-5"
+            >
+                <div class="col card">
+                    <div class="row day mx-auto">Monday</div>
+                    <div class="row temp mx-auto">
+                        24&deg;C
+                        <span class="col-3"><i class="fa fa-cloud fa-fw"></i></span>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <!-- humidity small  -->
+                        <div class="row humidity-small">
+                            <span class="col-auto ">
+                                <i class="fas fa-temperature-high"></i>
+                            </span>
+                            <span class="col">80%</span>
+                        </div>
+                        <!-- wind speed small -->
+                        <div class="row wind-small">
+                            <span class="col-auto">
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span class="col">1km/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card">
+                    <div class="row day mx-auto">Monday</div>
+                    <div class="row temp mx-auto">
+                        24&deg;C
+                        <span class="col-3"><i class="fa fa-cloud fa-fw"></i></span>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <!-- humidity small  -->
+                        <div class="row humidity-small">
+                            <span class="col-auto ">
+                                <i class="fas fa-temperature-high"></i>
+                            </span>
+                            <span class="col">80%</span>
+                        </div>
+                        <!-- wind speed small -->
+                        <div class="row wind-small">
+                            <span class="col-auto">
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span class="col">1km/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card">
+                    <div class="row day mx-auto">Monday</div>
+                    <div class="row temp mx-auto">
+                        24&deg;C
+                        <span class="col-3"><i class="fa fa-cloud fa-fw"></i></span>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <!-- humidity small  -->
+                        <div class="row humidity-small">
+                            <span class="col-auto ">
+                                <i class="fas fa-temperature-high"></i>
+                            </span>
+                            <span class="col">80%</span>
+                        </div>
+                        <!-- wind speed small -->
+                        <div class="row wind-small">
+                            <span class="col-auto">
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span class="col">1km/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card">
+                    <div class="row day mx-auto">Monday</div>
+                    <div class="row temp mx-auto">
+                        24&deg;C
+                        <span class="col-3"><i class="fa fa-cloud fa-fw"></i></span>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <!-- humidity small  -->
+                        <div class="row humidity-small">
+                            <span class="col-auto ">
+                                <i class="fas fa-temperature-high"></i>
+                            </span>
+                            <span class="col">80%</span>
+                        </div>
+                        <!-- wind speed small -->
+                        <div class="row wind-small">
+                            <span class="col-auto">
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span class="col">1km/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card">
+                    <div class="row day mx-auto">Monday</div>
+                    <div class="row temp mx-auto">
+                        24&deg;C
+                        <span class="col-3"><i class="fa fa-cloud fa-fw"></i></span>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <!-- humidity small  -->
+                        <div class="row humidity-small">
+                            <span class="col-auto ">
+                                <i class="fas fa-temperature-high"></i>
+                            </span>
+                            <span class="col">80%</span>
+                        </div>
+                        <!-- wind speed small -->
+                        <div class="row wind-small">
+                            <span class="col-auto">
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span class="col">1km/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card">
+                    <div class="row day mx-auto">Monday</div>
+                    <div class="row temp mx-auto">
+                        24&deg;C
+                        <span class="col-3"><i class="fa fa-cloud fa-fw"></i></span>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <!-- humidity small  -->
+                        <div class="row humidity-small">
+                            <span class="col-auto ">
+                                <i class="fas fa-temperature-high"></i>
+                            </span>
+                            <span class="col">80%</span>
+                        </div>
+                        <!-- wind speed small -->
+                        <div class="row wind-small">
+                            <span class="col-auto">
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span class="col">1km/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col card">
+                    <div class="row day mx-auto">Monday</div>
+                    <div class="row temp mx-auto">
+                        24&deg;C
+                        <span class="col-3"><i class="fa fa-cloud fa-fw"></i></span>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <!-- humidity small  -->
+                        <div class="row humidity-small">
+                            <span class="col-auto ">
+                                <i class="fas fa-temperature-high"></i>
+                            </span>
+                            <span class="col">80%</span>
+                        </div>
+                        <!-- wind speed small -->
+                        <div class="row wind-small">
+                            <span class="col-auto">
+                                <i class="fas fa-wind"></i>
+                            </span>
+                            <span class="col">1km/hr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- forecast section end -->
+        </div>
+        <!-- main frame end -->
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Scientist</title>
+        <!-- colosseum font -->
+        <link href="https://db.onlinewebfonts.com/c/8926ccb2ee5614ddc59febd5fe06bf2d?family=Colosseum+W00+X+Bold+Italic"
+              rel="stylesheet"
+              type="text/css" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                /* border: 1px solid red; */
+            }
+
+            body,
+            .col,
+            .row {
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* .face .row, .face .col{
+                width: 100%;
+                height: 100%;
+            } */
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                background-color: #ccc0ba;
+                padding: 2%
+            }
+            header{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            header h1,
+            footer {
+                font-family: "Colosseum W00 X Bold Italic";
+                color: #670524;
+                letter-spacing: 3px;
+                /* filter: drop-shadow(3px 3px 3px #000); */
+            }
+            header p{
+                font-family: "Colosseum W00 X Bold Italic";
+                color: #670524;
+                font-size: 4vh;
+                /* width: 100%; */
+                /* justify-self: center; */
+
+            }
+
+            main {
+                width: 50vh;
+                height: 110vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                filter: drop-shadow(5px 0px 10px #000)
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .col {
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* table */
+            main>.experiment {
+                width: 100%;
+                height: 50%;
+                position: absolute;
+                bottom: 3%;
+                z-index: 1; /* overlap scientist's body */
+                /* background-color: yellow; */
+            }
+            .experiment .stuff{
+                width: 23%;
+                height: 40%;
+                position: relative;
+                left: -15%;
+                /* background-color: green; */
+            }
+            .experiment .stuff .bubbles{
+                width: 25%;
+                height: 100%;
+                position: absolute;
+                z-index: 2;
+                /* background-color: grey; */
+            }
+            .bubbles .bubble{
+                border-radius: 50%;
+                box-shadow: inset 1px -2px 5px #b2d9ea88; 
+            }
+            .bubble.big{
+                width: 100%;
+                height: 16%;
+                background-color: #dd1d4a33;
+                position: relative;
+                top: -80%;
+                left: -50%;
+            }
+            .bubble.small{
+                width: 50%;
+                height: 8.3%;
+                background-color: #dd1d4a33;
+                position: relative;
+                top: -70%;
+            }
+            .experiment .stuff .funnel{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 2;
+                /* background-color: red; */
+            }
+            .funnel .neck{
+                width: 25%;
+                height: 35%;
+                background-color: #b2d9ea33;
+                position: relative;
+                top: 2%;
+                transform: scaleY(1.1);
+                box-shadow: inset 5px 2px 15px 5px #b2d9eaff; 
+            }
+            .funnel .body{
+                width: 100%;
+                height: 65%;
+                background-color: #b2d9ea33;
+                border-radius: 50%;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+                box-shadow: inset 5px -2px 15px 5px #b2d9eaff; 
+            }
+            /* fluid inside the funnel */
+            .funnel .fluid{
+                width: 70px;
+                height: 40px;
+                background-color: #dd1d4a;
+                position: absolute;
+                bottom: 10%;
+                border-radius: 0 0 50px 50px;
+                box-shadow: inset 10px -5px 5px #b8183d; 
+            }
+            .experiment .table{
+                width: 100%;
+                height: 60%;
+                /* background-color: green; */
+            }
+            .table .col{
+                width: 100%;
+                height: 100%;
+            }
+            .table .top{
+                width: 100%;
+                height: 15%;
+                background-color: #40302a;
+                border-radius: 20px;
+                box-shadow: inset 10px 0px 10px 5px #2c211d, 2px 2px 2px #2c211d;
+            }
+            .table .legs{
+                width: 100%;
+                flex: 1;
+                /* justify-content: space-between; */
+                gap: 75%;
+                position: relative;
+                align-items: start;
+            }
+            .table .leg{
+                width: 5%;
+                height: 100%;
+                background-color: #40302a;
+                box-shadow: inset 5px 0px 5px 4px #2c211d;
+                border-radius: 0 0 30vh 30vh;
+            }
+            .table .leg.back{
+                height: 90%;
+                background-color: #40302a;
+                position: absolute;
+                box-shadow: inset 0px 20px 5px 4px #2c211d;
+            }
+            .table .leg.back.right{
+                left: 15%;
+            }
+            .table .leg.back.left{
+                right: 15%;
+            }
+
+
+
+            /* scientist */
+            main>.body {
+                width: calc((100%/12)*6);
+                height: 100%;
+                position: relative;
+                z-index: 0; /* display beneath the table */
+
+            }
+
+            .head {
+                width: 80%;
+                height: 16%;
+                position: relative;
+                /* z-index: -1; */
+                justify-content: center;
+            }
+
+            .head .hairs {
+                width: 80%;
+                height: 100%;
+                position: relative;
+                top: 11%;
+                /* z-index: 0; */
+                align-items: center;
+            }
+
+            .hair {
+                width: 110%;
+                height: 50%;
+                background-color: #d3dfe9;
+                border-radius: 25px;
+                box-shadow: inset 3px .5px 5px #a1aab1;
+
+            }
+
+            .ear {
+                width: 90%;
+                height: 50%;
+                background-color: #f6c19dff;
+                border-radius: 15px;
+                box-shadow: inset 2px 2px 5px 1px #e9686bff;
+            }
+
+            .face {
+                width: 60%;
+                height: 100%;
+                border-radius: 45% 45% 35% 35%;
+                background-color: #f6c19dff;
+                box-shadow: inset 10px -2px 10px 3px #e9686bff, 1px 1px 3px rgb(136, 75, 76);
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                z-index: 0;
+            }
+
+            /* face 1st part : goggles + eyes */
+            .face .eye-glass-group {
+                width: 100%;
+                height: 40%;
+                justify-content: space-evenly;
+                align-items: center;
+                /* background-color: white; */
+                /* border: 1px solid red; */
+                /* position: relative; */
+            }
+
+            .eye-glass-group .col {
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                top: 28%;
+            }
+
+            /* face 1st subpart : goggles */
+            .eye-glass-group .col .glass-frame {
+                position: relative;
+                top: 12%;
+                z-index: 1; /* overlapping the eye */
+                width: 100%;
+                height: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            /* goggle stick size & color */
+            .glass-frame .stick {
+                width: 12%;
+                height: 20%;
+                background-color: black;
+                transform: scaleX(1.03);
+            }
+
+            /* goggle left side stick skew*/
+            .glass-frame .stick.left {
+                transform: skewY(30deg) translate(0%, -70%);
+            }
+
+            /* goggle right side stick skew*/
+            .glass-frame .stick.right {
+                transform: skewY(-30deg) translate(-5%, -70%);
+            }
+
+            /* glass circular frame: size, border, soft-edge, & shadow */
+            .glass-frame .circle {
+                width: 32%;
+                height: 100%;
+                border: 3px solid black;
+                border-radius: 50%;
+                box-shadow: inset 1px .5px 1px 12px #8bcaf453;
+            }
+
+            /* face 2nd subpart : eye-group  */
+            .eye-glass-group .col .eye-group {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                /* background-color: yellow; */
+                justify-content: space-between;
+                align-items: center;
+                /* border: 1px solid red; */
+            }
+
+            .eye-group .col {
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                position: static;
+            }
+
+            /* eyebrows */
+            .eyebrows {
+                width: 100%;
+                height: 30%;
+                justify-content: space-evenly;
+                align-items: center;
+                gap: 30%;
+                position: relative;
+                /* border: 1px solid red; */
+            }
+
+            .eyebrows .eyebrow {
+                width: 25%;
+                height: 50%;
+                /* border: 1px solid red; */
+                background-color: #d3dfe9;
+                position: absolute;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                border-radius: 5px 5px 0 0;
+                box-shadow: inset 1px .5px 1px #a1aab1;
+            }
+
+            .eyebrow.left {
+                left: 13%;
+                top: 16%;
+                transform: translateY(-550%) rotate(-30deg);
+                transform-origin: left;
+            }
+
+            .eyebrow.right {
+                right: 13%;
+                top: 16%;
+                transform: translateY(-700%) rotate(30deg);
+            }
+
+            .eyes {
+                width: 40%;
+                height: 60%;
+                position: relative;
+            }
+
+            .eyes .eye {
+                width: 40%;
+                height: 100%;
+                background-color: white;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                box-shadow: inset 1px .5px 1px #a1aab1;
+            }
+
+            /* left eyeball alignment  */
+            .eye.left {
+                left: 85%;
+                top: -105%;
+            }
+
+            /* right eyeball alignment  */
+            .eye.right {
+                right: 85%;
+                top: -105%;
+            }
+
+            .eye .black {
+                width: 50%;
+                height: 50%;
+                background-color: black;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: end;
+                position: absolute;
+                top: 10%;
+                box-shadow: inset -1px -1px 1px rgb(115, 115, 115);
+            }
+
+            /* face 2nd part : mouth  */
+            .face>.mouth-area {
+                width: 100%;
+                height: 20%;
+                position: relative;
+                top: 5%;
+                background-color: transparent;
+            }
+
+            .face .nose {
+                width: 15%;
+                height: 45%;
+                border-radius: 50%;
+                background-color: #ec937dff;
+                box-shadow: inset .5px 0px 5px 0px #e9686bff;
+                position: absolute;
+                top: 5%;
+                z-index: 1; /* overlap the moustache */
+            }
+
+            .face .moustache {
+                width: 60%;
+                height: 50%;
+                background-color: black;
+                border-radius: 50px 50px 0 0;
+                box-shadow: inset 3px 2px 5px 1px rgb(84, 84, 84);
+                position: absolute;
+                z-index: 0; /* display beneath nose */
+            }
+
+            .face .mouth {
+                width: 40%;
+                height: 50%;
+                align-items: end;
+                justify-content: start;
+                background-color: #670524;
+                border: px solid #000;
+                border-radius: 0 0 5px 5px;
+                position: absolute;
+                bottom: -25%;
+            }
+
+            .face .mouth .toungue {
+                width: 80%;
+                height: 50%;
+                background-color: #ee435e;
+                border-radius: 0 5px 0 5px;
+            }
+
+
+
+            .body .neck {
+                width: 20%;
+                height: 6%;
+                background-color: #ec937dff;
+                transform: scaleY(1.1); /* increase the vertical size by 10% */
+                box-shadow: inset 4px 5px 10px 0px #e9686bff;
+                position: relative;
+                z-index: -1; /* display beneath the face */
+
+            }
+
+            /* upper body of scientist */
+            .upper-body {
+                width: 100%;
+                height: 30%;
+                position: relative;
+            }
+
+            /* scientist's tshirt inside coat */
+            .upper-body .tshirt {
+                position: absolute;
+                width: 80%;
+                height: 100%;
+                background-color: #b2d9eaff;
+                box-shadow: 0px 2px 6px 4px rgb(74, 95, 104);
+                border-radius: 10% 10% 0 0;
+
+            }
+
+            /* scientist's coat above tshirt */
+            .upper-body .coat {
+                width: 90%;
+                height: 100%;
+                /* background-color: green; */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                /* stretch the coat 10% along vertical axis*/
+                transform: translateY(-15%);
+                position: absolute;
+            }
+
+            /* both halfs of coat */
+            .coat .part {
+                width: 40%;
+                height: 100%;
+                display: flex;
+            }
+
+            /* align first half of coat to left */
+            .coat .part.left {
+                align-items: end;
+
+            }
+
+            /* align second half of coat to right */
+            .coat .part.right {
+                align-items: start;
+            }
+
+            /* coat's collar */
+            .coat .part .collar {
+                width: 50%;
+                height: 10%;
+                background-color: #d0eaf8ff;
+            }
+
+            .coat .left .collar {
+                box-shadow: inset 4px 5px 10px 0px rgb(127, 154, 168);
+                transform: skewY(-4deg);
+            }
+
+            .coat .right .collar {
+                box-shadow: inset -4px 5px 10px 0px rgb(127, 154, 168);
+                transform: skewY(4deg);
+            }
+
+            /* coat's body below collar */
+            .coat .body {
+                width: 100%;
+                height: 100%;
+                background-color: #d0eaf8ff;
+            }
+
+            /* left half of coat's body*/
+            .coat .left .body {
+                border-radius: 35px 0 0 0;
+                transform: skew(0deg, -10deg);
+                box-shadow: inset 10px 20px 20px 0px rgb(127, 154, 168), 2px -2px 2px rgb(127, 154, 168);
+            }
+
+            /* right half of coat's body*/
+            .coat .right .body {
+                border-radius: 0 35px 0 0;
+                transform: skew(0deg, 10deg);
+                box-shadow: inset -10px 20px 20px 0px rgb(127, 154, 168), -2px -2px 2px rgb(127, 154, 168);
+            }
+
+            .coat .left-skew {
+                transform: skew(0deg, 10deg) translateY(30%);
+                background-color: #d0eaf8ff;
+                box-shadow: inset 10px 20px 20px 0px rgb(127, 154, 168), 2px -5px 5px rgb(127, 154, 168);
+                position: absolute;
+            }
+
+            .coat .right-skew {
+                transform: skew(0deg, -10deg) translateY(30%);
+                background-color: #d0eaf8ff;
+                box-shadow: inset -10px 20px 20px 0px rgb(127, 154, 168), -2px -5px 5px rgb(127, 154, 168);
+                position: absolute;
+            }
+
+            /* coat's hand */
+            .coat .hand {
+                width: 25%;
+                height: 100%;
+                justify-content: space-between;
+                position: absolute;
+                top: 10%;
+                /* background-color: yellow; */
+            }
+
+            /* left hand alignment */
+            .left .hand {
+                align-self: start;
+                transform: rotate(25deg) translate(35%, 12%) skewY(15deg);
+                transform-origin: top;
+                /* rotate along top axis */
+            }
+
+            /* right hand alignment */
+            .right .hand {
+                align-self: end;
+                transform: rotate(335deg) translate(-35%, 12%) skewY(-10deg);
+                transform-origin: top;
+                /* rotate along top axis */
+            }
+
+            /* coat's sleeves */
+            .hand .sleeve {
+                width: 100%;
+                height: 85%;
+                background-color: #d0eaf8ff;
+                border-radius: 40px 40px 0 0;
+                transform: scaleY(1.2);
+                /* stretch sleeve  by 20%*/
+
+            }
+
+            /* left hand sleeve 3d effect  */
+            .left .hand .sleeve {
+                box-shadow: inset 5px -5px 10px 0px rgb(127, 154, 168);
+            }
+
+            /* right hand sleeve 3d effect  */
+            .right .hand .sleeve {
+                box-shadow: inset -5px -5px 10px 0px rgb(127, 154, 168);
+            }
+
+            /* scientist's forehand */
+            .hand .forehand {
+                width: 70%;
+                height: 30%;
+                position: relative;
+                top: 11%;
+                transform: scaleY(1.3);
+            }
+
+            /* left forehand round edge */
+            .left .hand .forehand {
+                border-radius: 0% 0% 30% 50%;
+            }
+
+            /* right forehand round edge */
+            .right .hand .forehand {
+                border-radius: 0% 0% 70% 50%;
+            }
+
+            /* forehand column: not to break the inheritance */
+            .forehand .col {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                /* z-index: 2; */
+            }
+
+            /* scientist's palm and fingers size  */
+            .forehand .palm,
+            .forehand .fingers {
+                width: 100%;
+                height: 50%;
+            }
+
+            /* scientist's palm */
+            .forehand .palm {
+                background-color: #f6c19dff;
+                position: relative;
+                /* z-index: 2; display underneath thumb */
+            }
+
+            /* left hand palm */
+            .left .forehand .palm {
+                box-shadow: inset -2px 2px 3px #e9686bff;
+            }
+
+            /* right hand palm */
+            .right .forehand .palm {
+                box-shadow: inset 2px 2px 3px #e9686bff;
+            }
+
+            /* scientist's thumb: size & color */
+            .forehand .thumb {
+                width: 45%;
+                height: 30%;
+                justify-self: start;
+                background-color: #f6c19dff;
+                position: absolute;
+                top: 0%;
+                z-index: 4; /* overlay on top of palm */ 
+            }
+
+            /* left hand thumb: position, round edge, and shadow */
+            .left .forehand .thumb {
+                align-self: end;
+                transform: skewX(30deg) translate(90%, 10%) rotateZ(30deg);
+                transform-origin: left;
+                border-radius: 0% 50px 30px 0;
+                box-shadow: inset -2px -2px 3px #e9686bff;
+            }
+
+            /* right hand thumb: position, round edge, and shadow */
+            .right .forehand .thumb {
+                align-self: start;
+                transform: skewX(-30deg) translate(-83%, 30%) rotateZ(-30deg);
+                border-radius: 50px 0 0 30px;
+                box-shadow: inset 2px -2px 3px #e9686bff;
+            }
+
+            /* scientist's all fingers */
+            .forehand .fingers {
+                position: relative;
+                z-index: 0;
+            }
+            .left .forehand .fingers {
+                flex-direction: row;
+            }
+            .right .forehand .fingers {
+                flex-direction: row-reverse;
+            }
+
+
+
+            /* size and color of fingers */
+            .forehand .fingers .finger {
+                height: 100%;
+                width: 25%;
+                background-color: #f6c19dff;
+            }
+
+            /* left hand fingers' shadow */
+            .left .forehand .fingers .finger {
+                border-radius: 0 0px 150% 150%;
+                box-shadow: inset -2px -4px 2px #e9686bff;
+
+            }
+
+            /* left hand finger1  */
+            .left .forehand .fingers .finger:nth-child(1) {
+                position: relative;
+                z-index: -1;
+                transform: scale(1, 0.9);
+                top: -10%;
+            }
+
+            /* left hand finger2  */
+            .left .forehand .fingers .finger:nth-child(2) {
+                transform: scale(1.1);
+                position: relative;
+            }
+
+            /* left hand finger3  */
+            .left .forehand .fingers .finger:nth-child(3) {
+                transform: scale(1.1, 1.2);
+                position: relative;
+                top: 9%;
+            }
+
+            /* left hand finger4  */
+            .left .forehand .fingers .finger:nth-child(4) {
+                transform: scaleY(.8);
+                position: relative;
+                top: -10%;
+                border-radius: 0 0 500% 500%;
+            }
+            
+            /* right hand fingers shadow and soft edge */
+            .right .forehand .fingers .finger {
+                border-radius: 0px 0px 150% 150%;
+                box-shadow: inset 2px -4px 2px #e9686bff;
+            }
+
+            /* right hand finger1  */
+            .right .forehand .fingers .finger:nth-child(1) {
+                position: relative;
+                z-index: -1;
+                transform: scale(1, 0.9);
+                top: -10%;
+            }
+
+            /* right hand finger2  */
+            .right .forehand .fingers .finger:nth-child(2) {
+                transform: scale(1.1);
+                position: relative;
+            }
+
+            /* right hand finger3  */
+            .right .forehand .fingers .finger:nth-child(3) {
+                transform: scale(1.1, 1.2);
+                position: relative;
+                top: 9%;
+            }
+
+            /* right hand finger4  */
+            .right .forehand .fingers .finger:nth-child(4) {
+                transform: scaleY(.8);
+                position: relative;
+                top: -10%;
+                border-radius: 0 0 500% 500%;
+            }
+
+            /* lower body of scientist */
+            .lower-body {
+                width: 60%;
+                height: 30%;
+                /* background-color: brown; */
+                position: relative;
+                z-index: -1;
+                display: flex;
+                /* justify-content: space-between; */
+                align-items: center;
+            }
+
+            /* scientist's trouser */
+            .pant {
+                width: 100%;
+                height: 90%;
+                position: absolute;
+                top: 0%;
+                background-color: #28170fff;
+                justify-self: start;
+                z-index: 1;
+            }
+
+            /* size of trouser */
+            .pant .sleeve {
+                width: 50%;
+                height: 100%;
+                position: relative;
+                z-index: 2;
+            }
+
+            /* trouser's left sleeve  */
+            .pant .sleeve.left {
+                border-right: 1px solid black;
+                box-shadow: inset 10px -5px 10px 2px rgb(19, 11, 7), inset -5px -5px 10px rgb(9, 5, 3);
+            }
+
+            /* trouser's right sleeve  */
+            .pant .sleeve.right {
+                box-shadow: inset -10px -5px 10px 2px rgb(19, 11, 7), inset 5px -5px 10px rgb(9, 5, 3);
+            }
+
+            /* scientist's shoes */
+            .shoes {
+                width: 100%;
+                height: 15%;
+                position: absolute;
+                bottom: -5%;
+                display: flex;
+                justify-content: space-between;
+                /* background-color: black; */
+            }
+
+            /* shoes size and color */
+            .shoes .shoe {
+                width: 70%;
+                height: 100%;
+                background-color: rgb(60, 34, 10);
+            }
+
+            /* left shoe: position, round edge, and position */
+            .shoes .left {
+                border-radius: 50px 0 10px 10px;
+                transform: translateX(-40%) scaleX(1.5);
+                box-shadow: inset 6px 4px 6px rgb(0, 0, 0);
+            }
+            
+            /* right shoe: position, round edge, and position */
+            .shoes .right {
+                border-radius: 0 50px 10px 10px;
+                transform: translateX(40%) scaleX(1.5);
+                box-shadow: inset -6px 4px 6px rgb(0, 0, 0);
+            }
+
+            .land {
+                width: 100%;
+                height: 5%;
+                display: flex;
+                align-self: end;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1>SCIENTIST</h1>
+            <p>🏮🧨Wishing you all a very <b>🎇Happy Diwali🎆</b></p>
+        </header>
+
+        <main class="row">
+            <!-- Experiment table  -->
+            <div class="col experiment">
+                <div class="row stuff">
+                    <div class="col bubbles">
+                        <div class="row bubble big"></div>
+                        <div class="row bubble small"></div>
+                    </div>
+                    <div class="col funnel">
+                        <div class="row neck"></div>
+                        <div class="row body">
+                            <div class="col fluid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row table">
+                    <div class="col">
+                        <div class="row top"></div>
+                        <div class="row legs">
+                            <div class="col leg left"></div>
+                            <div class="col leg back left"></div>
+                            <div class="col leg back right"></div>
+                            <div class="col leg right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- scientist  -->
+            <div class="col body">
+                <div class="row head">
+                    <div class="col hairs">
+                        <div class="row hair">
+                            <div class="row ear"></div>
+                        </div>
+                    </div>
+                    <div class="col face">
+                        <div class="row eye-glass-group">
+                            <div class="col">
+                                <div class="row glass-frame">
+                                    <div class="col stick left"></div>
+                                    <div class="col circle"></div>
+                                    <div class="col stick "></div>
+                                    <div class="col circle"></div>
+                                    <div class="col stick right"></div>
+                                </div>
+                                <div class="row eye-group">
+                                    <div class="col">
+                                        <div class="row eyebrows">
+                                            <div class="col eyebrow left"></div>
+                                            <div class="col eyebrow right"></div>
+                                        </div>
+                                        <div class="row eyes">
+                                            <div class="col eye left">
+                                                <div class="black"></div>
+                                            </div>
+                                            <div class="col eye right">
+                                                <div class="black"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mouth-area">
+                            <div class="col">
+                                <div class="row nose"></div>
+                                <div class="row moustache"></div>
+                                <div class="row mouth">
+                                    <div class="col toungue"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row neck"></div>
+                <div class="row upper-body">
+                    <div class="col">
+                        <div class="row tshirt">
+                            <div class="col left"></div>
+                            <div class="col right"></div>
+                        </div>
+                        <div class="row coat front">
+                            <div class="col part left">
+                                <div class="part left-skew"></div>
+                                <div class="col collar"></div>
+                                <div class="col body"></div>
+                                <div class="col hand">
+                                    <div class="row sleeve"></div>
+                                    <div class="row forehand">
+                                        <div class="col">
+                                            <div class="row palm"></div>
+                                            <div class="col thumb"></div>
+                                            <div class="row fingers">
+                                                <div class="col finger"></div>
+                                                <div class="col finger"></div>
+                                                <div class="col finger"></div>
+                                                <div class="col finger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col part right">
+                                <div class="part right-skew "></div>
+                                <div class="col collar"></div>
+                                <div class="col body"></div>
+                                <div class="col hand">
+                                    <div class="row sleeve"></div>
+                                    <div class="row forehand">
+                                        <div class="col">
+                                            <div class="row palm"></div>
+                                            <div class="col thumb"></div>
+                                            <div class="row fingers">
+                                                <div class="col finger"></div>
+                                                <div class="col finger"></div>
+                                                <div class="col finger"></div>
+                                                <div class="col finger"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row lower-body ">
+                    <div class="col">
+                        <div class="row pant">
+                            <div class="col sleeve left"></div>
+                            <div class="col sleeve right"></div>
+                        </div>
+                        <div class="row shoes">
+                            <div class="shoe left"></div>
+                            <div class="shoe right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>Copyright &copy; Alok Singh</p>
+
+        </footer>
+
+    </body>
+    <!-- bootstrap -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"></script> -->
+
+</html>

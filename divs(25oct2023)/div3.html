@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Div Tag: Task 3</title>
+    <style>
+        /* remove default margin and padding */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* flexbox */
+        body, .row, .row-mid{
+            display: flex;
+            flex-direction: row;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .main, .col, .col-boundary{
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* width & height  */
+        .main{
+            width: 90vh;
+            height: 90vh;
+        }
+        .row{
+            width: 100%;
+            height: 16.66%;
+        }
+        .row-mid{
+            width: 100%;
+            height: 66.66%;
+        }
+        .col-boundary{
+            width: 16.66%;
+            height: 100%;
+        }
+        .big-box{
+            width: 66.66%;
+            height: 100%;
+            background-color: #adc2e3ff;
+        }
+        .box{
+            width: 16.66%;
+            height: 100%;
+            background-color: #015a7fff;
+        }
+        .hrect{
+            width: 33.33%;
+            height: 100%;
+        }
+        .vrect{
+            width: 100%;
+            height: 50%;
+        }
+
+        /* colors  */
+        .blue-light{
+            background-color: #6dcef7ff;
+        }
+        .blue-mid{
+            background-color: #0076a3ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="row">
+            <div class="col box"></div>
+            <div class="col hrect blue-mid"></div>
+            <div class="col hrect blue-light"></div>
+            <div class="col box"></div>
+        </div>
+        <div class="row-mid">
+            <div class="col-boundary">
+                <div class="vrect blue-light"></div>
+                <div class="vrect blue-mid"></div>
+            </div>
+            <div class="big-box"></div>
+            <div class="col-boundary">
+                <div class="vrect blue-light"></div>
+                <div class="vrect blue-mid"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col box"></div>
+            <div class="col hrect blue-mid"></div>
+            <div class="col hrect blue-light"></div>
+            <div class="col box"></div>
+        </div>
+    </div>
+</body>
+</html>

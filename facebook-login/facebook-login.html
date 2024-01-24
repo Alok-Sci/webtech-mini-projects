@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Facebook Login</title>
+        <!-- bootstrap -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+              integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
+                integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+
+        <!-- fontawesome  -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+              integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <!-- qualta font  -->
+        <link href="https://db.onlinewebfonts.com/c/9b3d4f7427f38de16033b996696dcf74?family=FSP+DEMO+-+PGF-Qualta+Light"
+              rel="stylesheet"
+              type="text/css" />
+        <!-- tulasi font  -->
+        <link href="https://db.onlinewebfonts.com/c/08efdcaa9e2eca12c626738f98d4a7fb?family=Tulasi+Normal"
+              rel="stylesheet"
+              type="text/css" />
+        <!-- kalypsa font  -->
+        <link href="https://db.onlinewebfonts.com/c/33d51bb699de0284c60ab3e16dc6bd73?family=Kalypsa+Medium"
+              rel="stylesheet"
+              type="text/css" />
+        <style>
+            .qualta-font {
+                font-family: "FSP DEMO - PGF-Qualta Light";
+            }
+
+            * {
+                font-family: "Tulasi Normal";
+            }
+
+            body {
+                background-color: #f1f2f4;
+            }
+
+            .form-control::placeholder {
+                color: #a9b0be;
+                font-size: large;
+            }
+        </style>
+
+    </head>
+
+    <body class=" vh-100">
+
+        <main
+              class="container-fluid bg-body-ternary bg-opacity-50 col w-100 h-100 my-auto d-flex flex-col justify-content-center align-items-center ps-4">
+
+            <!-- row1  -->
+            <div class="row grid gap-4 d-flex justify-content-evenly h-100 ">
+                <!-- col1 : account column-->
+                <div class="col-4 text-black g-col-4 d-flex flex-column justify-content-start mt-5 ms-5">
+                    <div class="row mt-5 ps-2 pt-3">
+                        <div class="row">
+                            <!-- facebook logo  -->
+                            <h1 class="qualta-font text-primary fw-bolder  p-0 lh-1"
+                                style="font-size: 2.8rem;">facebook</h1>
+                            <h1 class="fw-light p-0 lh-base"
+                                style="font-size: 1.95rem;">Recent logins</h1>
+                            <p class="p-0 text-secondary fs-6 "
+                               style="line-height: 0;">Click your picture or add an account.</p>
+                        </div>
+                        <!-- account cards -->
+                        <div class="row mt-3 d-flex flex-row justify-content-start gap-1">
+                            <!-- rohit sir account card  -->
+                            <div class="col-5 position-relative p-0 ">
+                                <!-- rohit sir card -->
+                                <div class="card rounded-3 border border-2">
+                                    <!-- rohit sir facebook profile image  -->
+                                    <img src="https://scontent.flko9-1.fna.fbcdn.net/v/t39.30808-6/340612192_5959048220817274_3414474515045922621_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=6ir4K4XZjLAAX_WCJkw&_nc_ht=scontent.flko9-1.fna&oh=00_AfCN0H9sYSjPs1UI8yeJXPJaP8XdsQkQBvNJ61IQXtBelg&oe=654DB2F3"
+                                         class="rounded-top-3"
+                                         alt="rohit sir">
+                                    <!-- rohit sir card footer  -->
+                                    <div
+                                         class="card-footer text-secondary bg-white p-2 rounded-bottom-4 overflow-hidden m-0 fs-5 text-center border border-0">
+                                        Rohit</div>
+                                    <!-- left inside badge  -->
+                                    <a href="" class="text-decoration-none badge position-absolute text-center rounded-circle bg-dark bg-opacity-25 m-1 p-1 icon-link icon-link-hover " >
+                                        <span class=" d-flex flex-row justify-content-center align-items-center"style="width: 10px; height: 10px;"
+                                              >
+                                            <i class="fas fa-times mx-auto"></i>
+                                        </span>
+                                    </a>
+
+                                </div>
+                                <!-- right badge  -->
+                                <span class="badge position-absolute rounded-circle top-0 end-0 text-center d-flex flex-row align-items-center justify-content-center"
+                                      style="width: 25px; height: 25px ; background-color: #fa3e3e;">6</span>
+                            </div>
+                            <!-- add account card  -->
+                            <div
+                                 class="col-5 text-center bg-transparent add-account card m-0 p-0 ms-3 overflow-hidden rounded-3 border border-2">
+                                <!-- account card image  -->
+                                <div class="card-body bg-white bg-opacity-25 position-relative m-0 p-0 ">
+                                    <!-- add button icon-->
+                                    <span class="badge bg-primary position-absolute translate-middle top-50 rounded-circle "
+                                          style="width: 50px; height: 50px;">
+                                        <i
+                                           class="fas fa-plus fa-lg fs-4 position-absolute translate-middle top-50 m-auto"></i></span>
+                                </div>
+                                <!-- add account card footer -->
+                                <div class="card-footer text-primary bg-white p-0 p-2 lh-base border-0 fs-5">
+                                    Add
+                                    Account</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- col2 : form column -->
+                <div class="col-4 g-col-4 d-flex flex-column justify-content-center ps-4 mt-3">
+                    <div class="row bg-white rounded shadow w-100">
+
+                        <form action=""
+                              class="container col justify-content-evenly align-items-center text-center p-3 ">
+                            <input type="text"
+                                   class="col form-control border border-2 py-3"
+                                   placeholder="Email address or phone number">
+                            <input type="text"
+                                   class="col form-control border border-2 mt-3 p-3"
+                                   placeholder="Password">
+                            <button type="submit"
+                                    class="col btn btn-primary mt-3 w-100 fw-bold fs-5 py-2 ">Log in</button>
+                            <p class="col link-primary text-decoration-none mt-3 ">Forgotten password?</p>
+                            <hr class="w-100"> <!-- Horizontal line with full width and margin bottom -->
+                            <button type="submit"
+                                    class="btn btn-success col-6 fw-bold  fs-5 my-3 py-2 px-1 border-0"
+                                    style="background-color: #42b72aff;">Create new
+                                account</button>
+
+                        </form>
+                    </div>
+                    <p class="mt-4 text-center "><b>Create a Page</b> for a
+                        celebrity, brand or business.</p>
+                </div>
+
+            </div>
+
+        </main>
+
+    </body>
+
+</html>

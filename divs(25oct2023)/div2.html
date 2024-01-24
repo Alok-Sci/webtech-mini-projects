@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Div Tag: Task 2</title>
+    <style>
+        /* remove default margin and padding */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* flexbox */
+        body{
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        body, .row{
+            display: flex;
+            flex-direction: row;
+        }
+        .row-reverse{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        .main, .col{
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* width & height  */
+        .main{
+            width: 90vh;
+            height: 90vh;
+        }
+        .row, .row-reverse{
+            width: 100%;
+            height: 25%;
+        }
+        .rect-group{
+            width: 66.66%;
+            height: 100%;
+        }
+        .rect{
+            width: 100%;
+            height: 50%;
+        }
+        .box{
+            background-color: red;
+            width: 33.33%;
+            height: 100%;
+        }
+
+        /* colors  */
+        .light-orange{
+            background-color: #fec788ff;
+        }
+        .orange{
+            background-color: #f6941cff;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="row">
+            <div class="col rect-group">
+                <div class="rect light-orange"></div>
+                <div class="rect orange"></div>
+            </div>
+            <div class="col box"></div>
+        </div>
+        <div class="row-reverse">
+            <div class="col rect-group">
+                <div class="rect light-orange"></div>
+                <div class="rect orange"></div>
+            </div>
+            <div class="col box"></div>
+        </div>
+        <div class="row">
+            <div class="col rect-group">
+                <div class="rect light-orange"></div>
+                <div class="rect orange"></div>
+            </div>
+            <div class="col box"></div>
+        </div>
+        <div class="row-reverse">
+            <div class="col rect-group">
+                <div class="rect light-orange"></div>
+                <div class="rect orange"></div>
+            </div>
+            <div class="col box"></div>
+        </div>
+    </div>
+</body>
+</html>

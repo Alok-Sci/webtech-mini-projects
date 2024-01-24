@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Chess Board UI</title>
+        <style>
+            /* properties for all tags */
+            * {
+                margin: 0;
+                padding: 0;
+                color: #b8aa85;
+                font-weight: 800;
+            }
+
+            /* flexbox */
+            body,
+            main,
+            .step {
+                justify-content: center;
+                align-items: center;
+            }
+
+            .border-top,
+            .border-bottom,
+            .mid-row,
+            .step-row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            body,
+            main,
+            .border-left,
+            .border-right,
+            .step-group,
+            .step {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .border-left,
+            .border-right,
+            .border-top,
+            .border-bottom {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            header h1,
+            footer p{
+                font-size: large;
+                color: var(--bg-main);
+                letter-spacing: 3px;
+                filter: drop-shadow(3px 3px px #000);
+            }
+
+            /* width and height */
+            body {
+                width: 100vw;
+                height: 100vh;
+                gap: 10px;
+            }
+
+            main {
+                width: 90vh;
+                height: 90vh;
+                background-color: #42332dff;
+                border-radius: 5px;
+                box-shadow: inset 2px 2px 6px 2px
+            }
+
+            .border-top,
+            .border-bottom {
+                width: 100%;
+                height: 10%;
+            }
+
+            .mid-row {
+                width: 100%;
+                height: 80%;
+            }
+
+            .border-left,
+            .border-right {
+                width: 10%;
+                height: 100%;
+            }
+
+            /* make the step share equal width/height with its sibling and take the full width of parent together */
+            .step {
+                flex: 1 !important;
+                /*very important*/
+            }
+
+            .step-group {
+                width: 80%;
+                height: 100%;
+                border: 5px solid #b8aa85;
+                border-radius: 5px;
+                box-shadow:  inset 2px 2px 5px 20px;
+            }
+
+            .step-row {
+                width: 100%;
+                height: calc(100% / 8);
+            }
+
+            /* logic to apply white and black color to step */
+            .step-row:nth-child(even) .step:nth-child(even) {
+                background-color: #b8aa85;
+            }
+
+            .step-row:nth-child(odd) .step:nth-child(odd) {
+                background-color: #b8aa85;
+            }
+
+            .step-row:nth-child(even) .step:nth-child(odd),
+            .step-row:nth-child(odd) .step:nth-child(even) {
+                background-color: #42332dff;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1>LUDO BOARD</h1>
+        </header>
+
+        <main>
+            <!-- upper border  -->
+            <div class="border-top">
+                <div class="step"></div>
+                <div class="step">A</div>
+                <div class="step">B</div>
+                <div class="step">C</div>
+                <div class="step">D</div>
+                <div class="step">E</div>
+                <div class="step">F</div>
+                <div class="step">G</div>
+                <div class="step">H</div>
+                <div class="step"></div>
+            </div>
+            <!-- middle row  -->
+            <div class="mid-row">
+                <!-- left border  -->
+                <div class="border-left">
+                    <div class="step">8</div>
+                    <div class="step">7</div>
+                    <div class="step">6</div>
+                    <div class="step">5</div>
+                    <div class="step">4</div>
+                    <div class="step">3</div>
+                    <div class="step">2</div>
+                    <div class="step">1</div>
+                </div>
+                <!-- steps group  -->
+                <div class="step-group">
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                </div>
+                <!-- right border  -->
+                <div class="border-right">
+                    <div class="step">8</div>
+                    <div class="step">7</div>
+                    <div class="step">6</div>
+                    <div class="step">5</div>
+                    <div class="step">4</div>
+                    <div class="step">3</div>
+                    <div class="step">2</div>
+                    <div class="step">1</div>
+                </div>
+            </div>
+            <!-- bottom border  -->
+            <div class="border-bottom">
+                <div class="step"></div>
+                <div class="step">A</div>
+                <div class="step">B</div>
+                <div class="step">C</div>
+                <div class="step">D</div>
+                <div class="step">E</div>
+                <div class="step">F</div>
+                <div class="step">G</div>
+                <div class="step">H</div>
+                <div class="step"></div>
+            </div>
+
+        </main>
+        
+        <footer><b>Copyright &copy; Alok Singh</b></footer>
+        
+    </body>
+
+</html>

@@ -1,0 +1,203 @@
+:root
+{
+    --temp-font: "Teko";
+    --image-url: "url()";
+    --faded-white: #E4E4E450 !important;
+    --faded-black: #00000050 !important;
+    --text-color: #E4E4E4;
+}
+
+
+*
+{
+    font-family: var(--temp-font);
+    color: var(--text-color);
+    /* background-color: rgba(255, 0, 0, 0.179);
+    border: 1px solid #00000069; */
+}
+
+body
+{
+    /* background-image: url("https://www.vecteezy.com/video/7358596-motion-of-blue-paper-art-cartoon-abstract-waves-on-blue-light-sky-background-video-animated-background"); */
+    background-repeat: no-repeat;
+    filter: blur(60%);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: -1;
+}
+video
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+body::after
+{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: var(--faded); Black with some transparency */
+    backdrop-filter: blur(1px);
+    /* Adjust the blur amount as needed */
+    pointer-events: none;
+    /* This ensures that the overlay doesn't block mouse events */
+    z-index: 0;
+    /* Adjust the z-index to position the overlay correctly */
+}
+main
+{
+    width: 1400px;
+    min-height: 700px;
+    background-color: var(--faded-black);
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 1;
+    /* box-shadow: 10px 10px 10px 2px blue; */
+}
+.input-group
+{
+    background-color: var(--faded-white);
+    padding-block: 3px;
+}
+.input-group input
+{
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    letter-spacing: 3px;
+    transition: 0.3s all ease;
+}
+.input-group input::placeholder
+{
+    color: var(--text-color);
+}
+.input-group input:focus
+{
+    background-color: transparent;
+    box-shadow: none;
+    border-color: var(--faded);
+    color: var(--text-color);
+    letter-spacing: 5px;
+}
+#mid>.img
+{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.4rem;
+}
+.input-group button
+{
+    background-color: var(--faded-white);
+    border: none;
+    --bs-btn-hover-bg: none;
+    --bs-btn-active-bg: var(--faded-black);
+    --bs-btn-focus-bg: var(--faded);
+}
+.input-group button:hover
+{
+    font-size: small;
+}
+#mid .mid
+{}
+
+.mid #city-name
+{
+    font-size: calc(10em/1.618);
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 10px;
+}
+
+.mid .day-name
+{
+    font-size: calc((10em/1.618)/1.618);
+    line-height: 1;
+}
+
+.mid .temp
+{
+    font-size: 10em;
+    font-family: var(--temp-font);
+    line-height: 1;
+}
+#micro-data-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+#micro-data-container .micro-data
+{
+    padding-block: .8rem;
+    border-radius: 1rem;
+    background-color: var(--faded-white);
+    /* backdrop-filter: blur(50%); */
+}
+.micro-data> :first-child
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.micro-data> :last-child> :first-child
+{
+    font-size: calc(((10em/1.618)/1.618)/1.618);
+    line-height: 1;
+    ;
+}
+.micro-data> :last-child> :last-child
+{
+    font-size: calc((((10em/1.618)/1.618)/1.618)/1.618);
+}
+#forecast
+{
+    height: 30%;
+    gap: 1rem;
+}
+#forecast>.card
+{
+    width: 100%;
+    height: 100%;
+    padding: 1.3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    --bs-card-bg: var(--faded-white);
+    --bs-card-border-width: 0;
+}
+#forecast .card .day
+{
+    font-weight: 900;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    font-size: calc((((10em/1.618)/1.618)/1.618)/1.618);
+}
+#forecast .card .temp
+{
+    font-size: calc(((10em/1.618)/1.618)/1.618);
+    font-weight: 500;
+    /* font-family: var(--temp-font); */
+}
+#forecast .card .temp::after
+{
+    content: "";
+    position: fixed;
+    top: 50;
+    right: 0;
+
+}
+#forecast .card .humidity-small,
+#forecast .card .wind-small
+{
+    font-size: calc(((((10em/1.618)/1.618)/1.618)/1.618)/1.5);
+    font-weight: 100;
+}

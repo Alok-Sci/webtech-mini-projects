@@ -1,0 +1,438 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Scientific Calculator</title>
+	<link href="https://db.onlinewebfonts.com/c/19de45a392ba014cc9f1596115291c86?family=Pocket+Calculator" rel="stylesheet" type="text/css"/>
+    <style>
+		:root{
+			--secondary: #344956ff;
+			--primary: black;
+		}
+        body {
+			font-family: 'Calculator';
+            margin: 0;
+            padding: -2vmin;
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+            /* padding: 50px 0px; */
+            /* background: radial-gradient(black,darkblue,blue, darkblue,black)no-repeat fixed; */
+        }
+
+		form{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+        button.clear {
+			color: #fff;
+        }
+		
+		button{
+			background: var(--secondary);
+			box-shadow: inset 0px 4px 5px 4px var(--secondary);
+			color: white !important;
+		}
+        table {
+			justify-self: center;
+			align-self: center;
+			width: 1vmin;
+			height: 5vmin;
+            background: var(--primary);
+            padding: 3vmin;
+            text-align: center;
+            padding-bottom: 2vmin;
+            box-shadow: inset 0px 0px 27px var(--primary);
+            border-radius: 2vmin;
+            /* margin-top: 90px; */
+        }
+
+        button.equal {
+            width: 100%;
+            /* background: #210b04; */
+        }
+
+        button.equal:hover {
+            /* background: #000803; */
+        }
+
+        input[type="number"] {
+            width: 100%;
+            height: 4rem;
+            border: 1px solid #000;
+            font-size: 29px;
+            background: #b0c7c6;
+            font-weight: bold;
+            margin-bottom: 25px;
+			font-family: "Pocket Calculator";
+            /* margin-top: 10px; */
+            border-bottom: 2px solid var(--secondary);
+            border-radius: 2vmin;
+        }
+
+        button {
+            padding: 10px 20px;
+            width: 10vmin;
+            height: 6vmin;
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: bold;
+			font-family: "Pocket Calculator";
+            background: #000803;
+            border: none;
+            color: var(--secondary);
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #210b04;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <form name="calculator">
+        <table>
+
+            <tr>
+                <td colspan="4">
+                    <input
+                    id="result"
+                        type="number"
+                        name="result"
+                        placeholder="0"
+                        style="text-align:right"
+                        value=""
+                        disabled
+                    ></td>
+            </tr>
+
+            <tr>
+                <td><button
+                        type="button"
+                        value="sin"
+                        onclick="sin()"
+                    >sin</button></td>
+                <td><button
+                        type="button"
+                        value="cos"
+                        onclick="cos()"
+                    >cos</button></td>
+                <td><button
+                        type="button"
+                        value="tan"
+                        onclick="tan()"
+                    >tan</button></td>
+                <td colspan="2">
+                    <button
+                        type="button"
+                        value="C"
+                        class="clear"
+                        onclick="clear()"
+                    >C</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td><button
+                        type="button"
+                        value="x^2"
+                        onclick="square()"
+                    >x<sup>2</button></td>
+                <td><button
+                        type="button"
+                        value="x^3"
+                        onclick="cube()"
+                    >x<sup>3</button></td>
+                <td><button
+                        type="button"
+                        value="sqrt2"
+                        onclick="sqrt()"
+                    >&radic;</button></td>
+                <td><button
+                        type="button"
+                        value="sqrt3"
+                        onclick="cbrt()"
+                    >&#8731;</button></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button
+                        type="button"
+                        value="1"
+                        onclick="numKey(this)"
+                    >1</button>
+                </td>
+                <td><button
+                        type="button"
+                        value="2"
+                        onclick="numKey(this)"
+                    >2</button></td>
+                <td><button
+                        type="button"
+                        value="3"
+                        onclick="numKey(this)"
+                    >3</button></td>
+                <td>
+					<button
+                        type="button"
+                        value="BACKSPC"
+                        onclick="backspace()"
+                    > &cross;
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button
+                        type="button"
+                        value="4"
+                        onclick="numKey(this)"
+                    >4</button>
+                </td>
+                <td>
+                    <button
+                        type="button"
+                        value="5"
+                        onclick="numKey(this)"
+                    >5</button></td>
+                <td><button
+                        type="button"
+                        value="6"
+                        onclick="numKey(this)"
+                    >6</button></td>
+                <td><button
+                        type="button"
+                        value="-"
+                        onclick="subtract()"
+                    >&minus;</button></td>
+            </tr>
+
+            <tr>
+                <td><button
+                        type="button"
+                        value="7"
+                        onclick="numKey(this)"
+                    >7</button></td>
+                <td><button
+                        type="button"
+                        value="8"
+                        onclick="numKey(this)"
+                    >8</button></td>
+                <td><button
+                        type="button"
+                        value="9"
+                        onclick="numKey(this)"
+                    >9</button></td>
+                <td><button
+                        type="button"
+                        value="/"
+                        onclick="divide()"
+                    >&divide;</button></td>
+            </tr>
+
+            <tr>
+                <td><button
+                        type="button"
+                        value="."
+                        onclick="numKey(this)"
+                    >.</button></td>
+                <td><button
+                        type="button"
+                        value="0"
+                        onclick="numKey(this)"
+                    >0</button></td>
+                <td><button
+                        type="button"
+                        value="*"
+                        onclick="mul()"
+                    >*</button></td>
+                <td><button
+                        type="button"
+                        value="%"
+                        onclick="percent()"
+                    >&percnt;</button></td>
+            </tr>
+
+            <tr>
+                <td colspan="3"> <button
+                        type="button"
+                        value="="
+                        onclick="equal()"
+                        class="equal"
+                    >=</button></td>
+                <td><button
+                        type="button"
+                        value="+"
+                        onclick="add()"
+                    > + </button> </td>
+            </tr>
+
+        </table>
+    </form>
+
+
+    <script>
+
+        // algorithm:
+        // 1.on click numkey -> extract the value -> insert the value to the placeholder of input
+
+
+
+        let prev = '';
+        let op = '';
+ 
+        let resultField = document.querySelector('input#result');
+
+        console.log('resultField: ', resultField);
+        console.log('prev: ', prev);
+
+        // function to fetch current value 
+        function currValue(){
+            if(!resultField.value){
+                console.log('--no value in result field');
+            }else {
+                let resultValue = parseFloat(resultField.value);
+                console.log('--fetched current result field value: ', resultValue);
+            }
+            return resultValue;
+        }
+        // function to insert the value into the result field 
+        function toResult(value){
+            resultField.value = value;
+        }
+        // function to empty the input field
+        function resetField(){
+            resultField.value = '';
+        }
+        
+        function numKey(clickedBtn) {
+            console.log('--start of numkey--');
+            toResult(currValue*10 + parseFloat(clickedBtn.value));
+
+            console.log("---value---: ", prev);
+            // toResult(prev);
+        }
+        
+        
+        // function to add previous and 
+        function add() {
+            op = '+'; //store operation
+
+            console.log('--start of add--');
+            //append the value in the prev
+            if(!prev == ''){
+                prev = parseFloat(resultField.value);
+            } else {
+                prev += parseFloat(resultField.value);
+            }
+            //remove the value from the input field
+            resetField();
+        }
+        
+        function subtract() {
+            op = '-'; //store operation
+
+            console.log('--start of subtract--');
+            if(!prev == ''){
+                prev = parseFloat(resultField.value);
+            } else {
+                prev -= parseFloat(resultField.value);
+            }
+            resetField();
+        }
+
+        function mul() {
+            op = '*'; //store operation
+
+            console.log('--start of mul--');
+            if(!prev == ''){
+                prev = parseFloat(resultField.value);
+            } else {
+                prev *= parseFloat(resultField.value);
+            }
+            resetField();
+        }
+        
+        function divide() {
+            op = '/'; //store operation
+
+            console.log('--start of subtract--');
+            if(!prev == ''){
+                prev = parseFloat(resultField.value);
+            } else {
+                prev /= parseFloat(resultField.value);
+            }
+            resetField();
+        }
+        
+        function square() {
+            console.log('--start of square--');
+            toResult(resultField.value ** 2);
+        }
+        
+        function cube() {
+            console.log('--start of cube--');
+            toResult(resultField.value ** 3);
+        }
+
+        function sqrt() {
+            console.log('--start of sqrt--');
+            toResult(Math.sqrt(resultField.value));
+        }
+        
+        function cbrt() {
+            console.log('--start of cbrt--');
+            toResult(Math.cbrt(resultField.value));
+        }
+        
+        function sin() {
+            console.log('--start of sin--');
+            toResult(Math.sin(resultField.value));
+        }
+        
+        function cos() {
+            console.log('--start of cos--');
+            toResult(Math.cos(resultField.value));
+        }
+        
+        function tan() {
+            console.log('--start of tan--');
+            toResult(Math.tan(resultField.value));
+        }
+        
+        // function to clear the value of the calculator 
+        function clear() {
+            console.log('--start of clear--');
+            resetField();
+            prev = ''; //reset the prev
+            return prev;
+
+        }
+        
+        function equal() {
+            console.log('--start of equal--');
+            if(!resultField.value == ''){
+                toResult(prev);
+            } else {
+
+            }
+            console.log('prev: ', prev);
+            // Add your logic for the equal button here
+        }
+        </script>
+	
+	
+
+
+</body>
+
+</html>
