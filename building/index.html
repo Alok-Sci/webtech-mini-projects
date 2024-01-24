@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>Building in HTML</title>
+        <!-- fontwesome  -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+              integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer" />
+        <script defer
+                src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+                integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"></script>
+        <!-- bootstrap
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+              crossorigin="anonymous">
+        <script defer
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script> -->
+
+        <style>
+            :root {
+                --black: #344956;
+                --paint: #bfc5dd;
+                --pattern: #6a5462;
+                --glass: black;
+                --gate: black;
+                --stairs: black;
+            }
+
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .row-reverse {
+                display: flex;
+                flex-direction: row-reverse;
+            }
+
+            .col {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .fill {
+                flex-grow: 1;
+            }
+
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: lightgray;
+            }
+
+            main {
+                width: 40vw;
+                height: 40vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: stretch;
+                /* background-color: yellow; */
+            }
+
+            #building {
+                filter: drop-shadow(15px -15px 5px grey)
+            }
+
+            /* building roof  */
+            #building #roof {
+                height: 5%;
+                width: 45%;
+                background-color: var(--pattern);
+            }
+
+            /* building body  */
+            #building #body {
+                width: 100%;
+                height: 95%;
+                display: flex;
+                /* background-color: red; */
+            }
+
+            /* building body left side  */
+            #building #body>.left {
+                width: 35%;
+                height: 100%;
+                /* background-color: maroon; */
+                margin-left: 2%;
+            }
+
+            /* left side builidng left wall  */
+            #building #body>.left .wall {
+                width: 15%;
+                height: 100%;
+            }
+
+            #building #body>.left .wall>.row:nth-child(1) {
+                height: 80%;
+                width: 100%;
+                background-color: var(--black);
+            }
+
+            #building #body>.left .wall>.row:nth-child(2) {
+                height: 20%;
+                width: 100%;
+                background-color: var(--paint);
+            }
+
+            #building #body>.left .floor {
+                /* width: 70%;
+                height: 100%; */
+                /* background-color: green; */
+            }
+
+            #building #body>.left .floor>.top {
+                width: 100%;
+                height: 60%;
+                /* background-color: pink; */
+            }
+
+            #building #body>.left .floor>.top #glass {
+                width: 100%;
+                height: 100%;
+                flex-grow: 1;
+                background-color: var(--glass);
+                border: thick solid white;
+            }
+
+            #glass .line {
+                width: 5%;
+                height: 100%;
+                margin-left: 5%;
+                background-color: var(--pattern);
+            }
+
+            #building #body>.left .floor>.middle {
+                background-color: var(--black);
+            }
+
+            #building #body>.left .floor>.bottom {
+                width: 100%;
+                height: 32.5%;
+                background-color: var(--paint);
+                border: 1px solid var(--black);
+                border-bottom: none;
+            }
+
+            /* Gate  */
+            #building #body>.left .floor>.bottom #gate {
+                width: 100%;
+                height: 65%;
+                /* background-color: purple; */
+                align-self: flex-end;
+                margin-bottom: 5%;
+            }
+
+            #gate>#hinges {
+                width: 5%;
+                height: 100%;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            #gate>#hinges>.hinge {
+                height: 5%;
+                width: 100%;
+                background-color: var(--gate);
+            }
+
+            #gate>.pattern .side {
+                width: 5%;
+                height: 100%;
+                background-color: var(--gate);
+            }
+
+            #gate>.pattern .facade>.fence {
+                background-color: var(--gate);
+                width: 100%;
+                height: 100%;
+            }
+
+            #gate>.pattern .facade>.space {
+                /* background-color: var(--pattern); */
+                width: 100%;
+                height: 50%;
+            }
+
+            #gate>.space.right {
+                width: 5%;
+                height: 100%;
+                justify-content: center;
+            }
+
+            #gate>.space.right>#kundi {
+                width: 100%;
+                height: 5%;
+                background-color: var(--gate);
+            }
+
+
+            /* building body right side  */
+            #building #body>.right {
+                width: 65%;
+                height: 85%;
+                align-self: end;
+                /* background-color: blue; */
+            }
+
+            #building #body>.right>.upper {
+                width: 108%;
+                height: 53%;
+                margin-left: -4%;
+                transform: scaleX(1.07);
+            }
+
+            #building #body>.right>.upper>.wall {
+                width: 6.8%;
+                height: 100%;
+                background-color: var(--pattern);
+            }
+
+            #building #body>.right>.upper>.middle {
+                height: 80%;
+                background-color: var(--paint);
+                align-self: end;
+            }
+
+            #building #body>.right>.upper>.middle>.top {
+                height: 15%;
+                width: 100%;
+                background-color: var(--pattern);
+            }
+
+            #building #body>.right>.upper>.middle>.middle {
+                /* background-color: green; */
+            }
+
+            #building #body>.right>.upper>.middle>.bottom {
+                height: 20%;
+                width: 100%;
+                background-color: var(--pattern);
+            }
+
+            #building #body>.right>.upper>.middle>.middle>.row {
+                justify-content: space-evenly;
+                gap: 10%;
+                padding: 10% 5% 0 5%;
+                /* background-color: grey; */
+            }
+
+
+            #building #body>.right>.upper>.middle>.middle .window {
+                width: 50%;
+                height: 60%;
+                background-color: var(--black);
+                border: 5px solid var(--pattern);
+            }
+
+            #building #body>.right>.upper>.middle>.middle .door {
+                width: 50%;
+                height: 100%;
+                background-color: var(--black);
+                border: 5px solid var(--pattern);
+                border-bottom: none;
+            }
+
+            #building #body>.right>.lower>.upper .left {
+                height: 100%;
+                width: 40%;
+                background-color: var(--paint);
+                justify-content: center;
+                align-items: center;
+            }
+
+            #building #body>.right>.lower>.upper .left>.window {
+                height: 60%;
+                width: 50%;
+                background-color: var(--black);
+                border: 5px solid var(--pattern);
+
+            }
+
+            #building #body>.right>.lower>.upper .right {
+                height: 100%;
+                width: 40%;
+                background-color: var(--paint);
+                justify-content: end;
+                /* align-items: ; */
+            }
+
+            #building #body>.right>.lower>.upper .right>.door {
+                height: 80%;
+                width: 32%;
+                margin-left: 5%;
+                background-color: var(--black);
+                border: 5px solid var(--pattern);
+                border-bottom: none;
+
+            }
+
+            #building #body>.right>.lower>.upper .wall {
+                width: 8%;
+                height: 100%;
+                background-color: var(--paint);
+                box-shadow: 0px 0px 5px 2px grey;
+            }
+            #building #body>.right>.lower>.lower>.left{
+                background-color: var(--paint);
+                box-shadow: 0px -2px 2px grey;
+            }
+
+            #building #body>.right>.lower>.lower .roshandan {
+                width: 20%;
+                height: 30%;
+                background-color: var(--black);
+                justify-self: center;
+                align-self: end;
+                margin-right: 30%;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+
+            #building #body>.right>.lower>.lower>.col.right {
+                width: 25%;
+                height: 100%;
+                /* background-color: greenyellow */
+            }
+
+            #building #body>.right>.lower>.lower .staircase .stair {
+                width: 100%;
+                height: 100%;
+                background-color: var(--stairs);
+                box-shadow: inset 0px 2px 1px var(--paint);
+            }
+
+
+            #building #body>.wall {
+                width: 5%;
+                height: 40%;
+                justify-self: end;
+                align-self: end;
+            }
+
+            #building #body>.wall>.row:nth-child(1) {
+                justify-self: end;
+                background-color: var(--black);
+            }
+
+            #building #body>.wall>.row:nth-child(2) {
+                width: 100%;
+                height: 52%;
+                justify-self: end;
+                background-color: var(--paint);
+            }
+        </style>
+
+    </head>
+
+    <body class="">
+
+        <main class=""
+              id="building">
+            <div class="row top"
+                 id="roof">
+            </div>
+            <div class="row bottom "
+                 id="body">
+
+                <section class="col left ">
+                    <div class="row fill">
+                        <!-- /* left wall  */ -->
+                        <div class="col left wall">
+                            <div class="row "></div>
+                            <div class="row "></div>
+                        </div>
+
+                        <!-- /* middle of first building  */ -->
+                        <div class="col fill floor">
+                            <div class="row top">
+                                <div class="row"
+                                     id="glass">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+                            <div class="row fill middle"></div>
+                            <div class="row bottom">
+                                <div class="row"
+                                     id="gate">
+                                    <div class="col"
+                                         id="hinges">
+                                        <div class="row hinge"></div>
+                                        <div class="row hinge"></div>
+                                    </div>
+                                    <div class="col fill pattern">
+                                        <div class="row fill">
+                                            <div class="col side left"></div>
+                                            <div class="col fill facade">
+                                                <div class="row fence"></div>
+                                                <div class="row space"></div>
+                                                <div class="row fence "></div>
+                                                <div class="row space"></div>
+                                                <div class="row fence "></div>
+                                                <div class="row space"></div>
+                                                <div class="row fence "></div>
+                                                <div class="row space"></div>
+                                                <div class="row fence "></div>
+                                                <div class="row space"></div>
+                                                <div class="row fence "></div>
+                                                <div class="row space"></div>
+                                                <div class="row fence "></div>
+                                            </div>
+                                            <div class="col side right"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col space right">
+                                        <div class="row"
+                                             id="kundi"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /* right wall  */ -->
+                        <div class="col right wall">
+                            <div class="row "></div>
+                            <div class="row "></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col right">
+                    <div class="row upper">
+                        <div class="col wall"></div>
+                        <div class="col middle fill">
+                            <div class="row top"></div>
+                            <div class="row middle fill">
+                                <div class="row fill">
+                                    <div class="col window"></div>
+                                    <div class="col door">
+                                    </div>
+                                </div>
+                                <div class="row row-reverse fill">
+                                    <div class="col window"></div>
+                                    <div class="col door">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row bottom"></div>
+                        </div>
+                        <div class="col wall"></div>
+                    </div>
+                    <div class="col lower fill">
+                        <div class="row upper fill">
+                            <div class="col left">
+                                <div class="col window"></div>
+                            </div>
+                            <div class="col wall"></div>
+                            <div class="col right fill">
+                                <div class="col door"></div>
+                            </div>
+                        </div>
+                        <div class="row lower fill">
+                            <div class="col left fill">
+                                <div class="roshandan"></div>
+                            </div>
+                            <div class="col right">
+                                <div class="col staircase fill">
+                                    <div class="row stair"></div>
+                                    <div class="row stair"></div>
+                                    <div class="row stair"></div>
+                                    <div class="row stair"></div>
+                                    <div class="row stair"></div>
+                                    <div class="row stair"></div>
+                                    <div class="row stair"></div>
+                                    <div class="row stair"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="col wall">
+                    <div class="row fill"></div>
+                    <div class="row"></div>
+                </section>
+            </div>
+
+        </main>
+
+    </body>
+
+</html>
