@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Todo App</title>
+    <link
+        rel="stylesheet"
+        href="all.min.css"
+    >
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- fontwesome  -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+
+</head>
+
+<body class="column gap-5">
+
+    <header class="row w-100 align-center ">
+        <div class=" row justify-start w-50 m-20">
+            <div class="circle box bg-black row align-center justify-center p-10">
+                <i class="fa fa-plus txt-white "
+                       aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class=" row justify-end w-50 m-20 gap-2">
+            <a href="#"><button class="btn opacity-light">Show all tasks</button></a>
+            <a href="#"><button class="btn opacity-light">Tasks Completed</button></a>
+        </div>
+
+    </header>
+
+    <main class="m-20 column align-center w-100 h-100">
+        <div class="w-75 column gap-2">
+            <div class=" row justify-center gap-1 w-100">
+
+                <!-- task input field -->
+                <input
+                    type="text"
+                    placeholder="Add a new TODO task..."
+                    class="w-80 input"
+                    id="new-task-input"
+                    >
+                    <!-- the task add button -->
+                    <button
+                    class="btn w-20"
+                    id="add-task"
+                    onclick="addNewTask()"
+                >Add</button>
+            </div>
+            <!-- alert box -->
+            <div id="alert-box" class="msg-box txt-success bg-success opacity-light radius-5" style="display: none;">
+                <div class=" p-20 txt-center bold">
+                    <p>New task added!</p>
+                </div>
+            </div>
+            <div class=" bg-black txt-white p-30 radius-5">
+                <div
+                    class="w-100"
+                    id="task-container"
+                >
+
+                    <div class="w-100 row justify-between bold align-center">
+                        <div class="w-70"><span class="w-70  pb-20">Task Name</span></div>
+                        <div class="w-30 row justify-around">
+                            <span class="w-1by3 txt-center">Edit</span>
+                            <span class="w-1by3 txt-center">Delete</span>
+                            <!-- <span class="w-1by3 txt-center">Modify</span> -->
+                        </div>
+                    </div>
+                    <hr>
+
+                    <!-- append new tasks here  -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+<script>
+    // document.getElementById('add-task').addEventListener('click', addNewTask);
+
+    function addNewTask() {
+        let taskInput = document.getElementById('new-task-input').value;
+        let taskContainer = document.getElementById('task-container');
+        let alertBox = document.getElementById('alert-box');
+
+
+        if (taskInput.trim() !== '') {
+            // Create new task element
+            let newTask = document.createElement('div');
+            newTask.className = 'w-100 row justify-around align-center task mt-2';
+
+            let taskName = document.createElement('div');
+            taskName.className = 'w-70';
+            taskName.textContent = taskInput;
+
+            // create task actions (edit, delete, )
+            let taskActions = document.createElement('div');
+            taskActions.className = 'w-30 row justify-around ';
+
+            // Edit button
+            let editButton = createActionButton('fa-edit', 'Edit');
+            editButton.addEventListener('click', function () {
+                // Handle edit functionality
+                let updatedTaskName = prompt('Enter the updated task:');
+                if (updatedTaskName !== null) {
+                    taskName.textContent = updatedTaskName;
+                }
+            });
+
+            // Delete button
+            let deleteButton = createActionButton('fa-trash', 'Delete');
+            deleteButton.addEventListener('click', function () {
+                // Handle delete functionality
+                if (confirm('Are you sure you want to delete this task?')) {
+                    taskContainer.removeChild(newTask);
+                }
+            });
+
+            // Modify button
+            // let modifyButton = createActionButton('fa-cog', 'Modify');
+            // modifyButton.addEventListener('click', function () {
+            //     // Handle modify functionality
+            //     alert('Modify clicked for task: ' + taskInput);
+            // });
+
+            taskActions.appendChild(editButton);
+            taskActions.appendChild(deleteButton);
+            // taskActions.appendChild(modifyButton);
+
+
+            // append task name and task actions to the new task  
+            newTask.appendChild(taskName);
+            newTask.appendChild(taskActions);
+
+            // Append new task to the container
+            taskContainer.appendChild(newTask);
+
+             // Display alert for 1.5 seconds
+             alertBox.style.display = 'block';
+             alertBox.style.transition = '1s all ease'
+            setTimeout(function () {
+                alertBox.style.display = 'none';
+            }, 1500);
+
+            // Clear the input field
+            document.getElementById('new-task-input').value = '';
+        }
+    }
+
+    function createActionButton(iconClass, title) {
+        let actionButton = document.createElement('span');
+        actionButton.className = 'txt-center bg-white radius-5  opacity-light box';
+        let actionIcon = document.createElement('i');
+        actionIcon.className = 'fa ' + iconClass + ' txt-black m-10';
+        actionButton.appendChild(actionIcon);
+        actionButton.title = title;
+        return actionButton;
+    }
+</script>
+
+</html>
