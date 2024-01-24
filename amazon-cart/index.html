@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Amazon.in Shopping Cart</title>
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    >
+    <script src="product-cost.js"></script>
+
+</head>
+
+<body>
+    <header class="col">
+        <nav class="navbar row">
+            <div class="logo-address-wrapper row jcse">
+                <div class="nav-logo row jcse hover-line">
+                    <a href="#">
+                        <img
+                            src="images/amazon-logo.png"
+                            alt="logo"
+                        >
+                    </a>
+                </div>
+                <div class="address row hover-line">
+                    <div class="col jcc"><span class="material-symbols-outlined">location_on</span></div>
+                    <div class="address-text-wrapper">
+                        <a
+                            href="#"
+                            class="grey-text fs-12"
+                        >Deliver to Alok</a>
+                        <div class="map-icon">
+                            <a
+                                href="#"
+                                class="location nowrap fs-14"
+                            >Mahoba 210001</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-search row">
+                <div class="search-bar">
+                    <div class="search-dropdown row aic jcc nowrap fs-12">
+                        All &blacktriangledown;
+
+                        <div class="search-dropdown-list col">
+                            <option>All Categories</option>
+                            <option>Amazon Devices</option>
+                        </div>
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Search Amazon.in"
+                        class="search-input flex-fill"
+                    >
+                    <div class="search-icon row jcc aic">
+                        <span class="material-symbols-outlined">search</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-toolbar row jcc">
+                <div class="nav-tool-wrapper row jcse">
+                    <div class="row aic">
+                        <div class="language-flag-wrapper row aie hover-line">
+                            <img
+                                src="https://em-content.zobj.net/source/twitter/376/flag-india_1f1ee-1f1f3.png"
+                                class="flag"
+                                style="height: 1.5rem; object-fit: cover;"
+                            >
+                            <div class="lang ls-1 fz-9 bold">EN</div>
+                            &blacktriangledown;
+                        </div>
+                    </div>
+                    <div class="row aie fz-9 hover-line">
+                        <a
+                            href="#"
+                            class="row"
+                        >
+                            <div class="col">
+                                <p class="fs-12">Hello, sign in</p>
+                                <span class="bold fs-14">Account &amp; Lists</span>
+                            </div>
+                            <div class="col jce fz-9 bold">&blacktriangledown;</div>
+                        </a>
+                    </div>
+                    <div class="row aie fz-9 hover-line">
+                        <a href="#">
+                            <p class="fs-12">Returns</p>
+                            <span class="bold fs-14">&amp; Orders</span>
+                        </a>
+                    </div>
+                    <div class="row aie fz-9 hover-line">
+                        <a href="#">
+                            <span class="material-symbols-outlined cart-icon" style="font-size: 2.3rem;">shopping_cart</span>
+                        </a>
+                        <p class="bold">Cart</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="navbar2 row">
+            <ul class="navbar2-content row aic jcsb">
+                <li class="hover-line">
+                    <div class="menu row aic jcc">
+                        <a
+                            href="#"
+                            class="row aic bold ls-1"
+                        >
+                            <span class="material-symbols-outlined">menu</span>
+                            All</a>
+                    </div>
+                </li>
+                <li class="hover-line"><a href="#">Amazon miniTV</a></li>
+                <li class="hover-line"><a href="#">Sell</a></li>
+                <li class="hover-line"><a href="#">Gift Cards</a></li>
+                <li class="hover-line"><a href="#">Amazon Pay</a></li>
+                <li class="hover-line"><a href="#">Buy Again</a></li>
+                <li class="hover-line"><a href="#">Coupons</a></li>
+                <li class="hover-line"><a href="#">Gift Ideas</a></li>
+                <li class="hover-line"><a href="#">Today's Deals</a></li>
+                <li class="hover-line"><a href="#">Health, Household & Personal Care</a></li>
+                <li class="hover-line"><a href="#">AmazonBasics</a></li>
+                <li class="hover-line"><a href="#">Browsing History &blacktriangledown;</a></li>
+                <li class="hover-line"><a href="#">Prime &blacktriangledown;</a></li>
+                <li class="hover-line"><a href="#">Customer Service</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart row gap-3">
+        <section class="col">
+            <article class="col gap-3">
+                <article class="col">
+                    <div class="header">
+                        <div class="fs-28">Shopping Cart</div>
+                        <a
+                            href=""
+                            class="blue fs-14"
+                        >Deselct all items</a>
+                        <div class="row jce w-100">
+                            <p
+                                class="fs-14"
+                                style="margin-top: -1vmin; line-height: 1;"
+                            >Price</p>
+                        </div>
+                        <hr>
+                    </div>
+                    <form
+                        action=""
+                        class=" product-to-tick row aic gap-3"
+                    >
+                        <input
+                            type="checkbox"
+                            name=""
+                            id=""
+                        >
+                        <label for="product-item">
+                            <img
+                                src="https://images-eu.ssl-images-amazon.com/images/I/61ynRHlKuML._AC_UL100_SR100,100_.jpg"
+                                alt=""
+                                class="product-img"
+                            >
+                        </label>
+                        <div class="product-desc-wrapper gap-1 col flex-fill">
+                            <div class="row">
+                                <div class="product-desc col gap-1">
+                                    <div class="product-title fs-18">Programming with Java | 6th edition</div>
+                                    <div class="product-publisher fs-14">by E Balagurusamy</div>
+                                    <div class="product-type fs-12 bold">Paperback</div>
+                                    <div class="stock fs-12 green">In stock</div>
+                                    <div class="shipping-eligibility fs-12">Eligible for FREE shipping</div>
+                                    <form
+                                        action=""
+                                        class="row fs-12"
+                                    >
+                                        <label
+                                            for="gift"
+                                            class="row aic fs-12"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                name="gift"
+                                                id=""
+                                                style=""
+                                            >
+                                            &nbsp; This will be a gift <span class="blue"> &nbsp;Learn More</span></label>
+                                    </form>
+                                </div>
+                                <div class="product-price col aie">
+                                    <p class="fs-18 nowrap " > &dollar; <span id="product-base-cost">613.00</span></p>
+                                </div>
+                            </div>
+                            <div class="product-options row aic fs-12">
+                                <select class="button" id="product-quantity" onchange="totalCost()">
+                                    <option value="delete" class="dropdown-header-hidden">Qty: 1 </option>
+                                    <option value="0">0 (Delete)</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="more">10+</option>
+                                </select>
+                                <a
+                                    href="#"
+                                    class="blue"
+                                >Delete</a>
+                                <a
+                                    href="#"
+                                    class="blue"
+                                >Save for later</a>
+                                <a
+                                    href="#"
+                                    class="blue"
+                                >See more like this</a>
+                                <a
+                                    href="#"
+                                    class="blue"
+                                >Share</a>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="col">
+                        <div class="row jce">
+                            <p class="fs-18">Subtotal (1 item): <span class="fs-14 bold"><span class="fs-18 bold" > &dollar; <span class="total-cost">613.00</span></span></span></p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col gap-3">
+                    <div class="header col gap-3">
+                        <h1 class="fs-24">Your Items</h1>
+                        <div class="tabs row gap-3">
+                            <div
+                                class="col bold fs-14"
+                                style="border-bottom: 2px solid orange"
+                            >Saved for later (3 items)</div>
+                            <div class="col blue fs-14">Buy it again</div>
+                        </div>
+                    </div>
+                    <div class="product-card-wrapper row gap-3">
+                        <div class="product-card col gap-1">
+                            <img
+                                src="https://m.media-amazon.com/images/I/714XAK5tuFL._AC_AA220_.jpg"
+                                alt=""
+                            >
+                            <div class="product-title char-limit-50 fs-16">Web Technologies, Black Book, 2018 (As per Mumbai University</div>
+                            <div class="product-publisher fs-14">by DT Editorial Service</div>
+                            <div class="product-price fs-18 bold">&dollar; 629.00</div>
+                            <div class="product-type fs-12 bold">Paperback</div>
+                            <div class="stock fs-12 green">In stock</div>
+                            <div class="delivery-eligibility fs-12 grey-text">Eligible for FREE Shipping</div>
+                            <button>Move to Cart</button>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >Delete</a></p>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >Add to list</a></p>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >See more like this</a></p>
+                        </div>
+                        <div class="product-card col gap-1">
+                            <img
+                                src="https://m.media-amazon.com/images/I/71t58FV+qFL._AC_AA220_.jpg"
+                                alt=""
+                            >
+                            <div class="product-title char-limit-50 fs-16">Web Technologies: HTML, JAVASCRIPT, PHP, JAVA, JSP, ASP.NET, XML and AJAX</div>
+                            <div class="product-publisher fs-14">by Kogent Learning Solutions Inc.</div>
+                            <div class="product-price fs-18 bold">&dollar; 629.00</div>
+                            <div class="product-type fs-12 bold">Paperback</div>
+                            <div class="stock fs-12 green">In stock</div>
+                            <div class="delivery-eligibility fs-12 grey-text">Eligible for FREE Shipping</div>
+                            <button>Move to Cart</button>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >Delete</a></p>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >Add to list</a></p>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >See more like this</a></p>
+                        </div>
+                        <div class="product-card col gap-1">
+                            <img
+                                src="https://m.media-amazon.com/images/I/71S-p+5smhL._AC_AA220_.jpg"
+                                alt=""
+                            >
+                            <div class="product-title char-limit-50 fs-16">Programming in ANSI C, 8TH EDITION</div>
+                            <div class="product-publisher fs-14">by E Balagurusamy</div>
+                            <div class="product-price fs-18 bold">&dollar; 629.00</div>
+                            <div class="product-type fs-12 bold">Paperback</div>
+                            <div class="stock fs-12 green">In stock</div>
+                            <div class="delivery-eligibility fs-12 grey-text">Eligible for FREE Shipping</div>
+                            <button>Move to Cart</button>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >Delete</a></p>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >Add to list</a></p>
+                            <p><a
+                                    href="#"
+                                    class="blue fs-12"
+                                >See more like this</a></p>
+                        </div>
+                    </div>
+                </article>
+            </article>
+            <div class="fs-12 ">
+              The price and availability of items at Amazon.in are subject to change. The shopping cart is a temporary place to store a list of your items and reflects each item's most recent price. 
+              <br> Do you have a promotional code? We'll ask you to enter your claim code when it's time to pay.</div>
+
+        </section>
+        <aside class="col gap-3">
+            <article class="subtotal col gap-1">
+                <div class="delivery-alert row">
+                    <div class="icon col"></div>
+                    <div class="col">
+                        <p class="fs-12 green bold">Your order is eligible for FREE Delivery.</p>
+                        <p class="fs-12">Select this option at checkout. <span class="green">Details</span></p>
+                    </div>
+                </div>
+                <div class="fs-18">Subtotal (1 item): <span class="bold">&dollar; <span class="total-cost">613.00</span> </span></div>
+                <div class="checkbox">
+                    <form
+                        action="#"
+                        class="col gap-1"
+                    >
+                        <div class="row gap-1">
+                            <input
+                                type="checkbox"
+                                name="gift"
+                                id=""
+                            >
+                            <label
+                                for="gift"
+                                class="fs-14"
+                            >This order contains a gift</label>
+                        </div>
+                        <button
+                            type="submit"
+                            class="fs-14"
+                        >Proceed to Buy</button>
+                    </form>
+                </div>
+            </article>
+            <article
+                class="relevant-items col gap-3"
+                style="border-radius: 1vmin;"
+            >
+                <div class="fs-18 bold">Relevant items that may ship together</div>
+                <ul class="products col gap-3">
+                    <li class="row">
+                        <div class="product-img"><img
+                                src="https://images-eu.ssl-images-amazon.com/images/I/61ynRHlKuML._AC_UL100_SR100,100_.jpg"
+                                alt=""
+                            ></div>
+                        <div class="product-desc col gap-1">
+                            <h4 class="product-title fs-14 char-limit-20 blue">Object Oriented Programming C: 8th edition</h4>
+                            <p class="product-publisher fs-12 blue"> E Balaguruswamy</p>
+                            <p class="ratings fs-14">icons 784</p>
+                            <div class="product-type fs-12">Paperback</div>
+                            <div class="product-price fs-14 red">&dollar; 630.00</div>
+                            <div>
+                                <a href="https://www.amazon.in/Object-Oriented-Programming-C-8th-Balagurusamy/dp/9389949181/ref=pd_cart_m_crc_scr_cp_faf_d_sccl_1_1/258-1497994-8841464?pd_rd_w=ZYpze&content-id=amzn1.sym.b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_p=b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_r=TC9S1X00TDS9GEV50EAY&pd_rd_wg=qk8mi&pd_rd_r=205beac6-7a08-4e08-a1cf-fc797b9d65f9&pd_rd_i=9389949181&psc=1"><button>Add to Cart</button></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="product-img"><img
+                                src="https://images-eu.ssl-images-amazon.com/images/I/71AF8eZ5A5L._AC_UL100_SR100,100_.jpg"
+                                alt=""
+                            ></div>
+                        <div class="product-desc col gap-1">
+                            <h4 class="product-title fs-14 char-limit-20 blue">Java: THE COMPLETE REFERENCE</h4>
+                            <p class="product-publisher fs-12 blue">Herbert Schildt</p>
+                            <p class="ratings fs-14">icons 253</p>
+                            <div class="product-type fs-12">Paperback</div>
+                            <div class="product-price fs-14 red">&dollar; 1,023.00</div>
+                            <div>
+                                <a href="https://www.amazon.in/JAVA-COMPLETE-REFERENCE-Herbert-Schildt/dp/9355323719/ref=pd_cart_m_crc_scr_cp_faf_d_sccl_1_2/258-1497994-8841464?pd_rd_w=ZYpze&content-id=amzn1.sym.b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_p=b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_r=TC9S1X00TDS9GEV50EAY&pd_rd_wg=qk8mi&pd_rd_r=205beac6-7a08-4e08-a1cf-fc797b9d65f9&pd_rd_i=9355323719&psc=1"><button>Add to Cart</button></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="product-img"><img
+                                src="https://images-eu.ssl-images-amazon.com/images/I/81MhbO9IMDS._AC_UL100_SR100,100_.jpg"
+                                alt=""
+                            ></div>
+                        <div class="product-desc col gap-1">
+                            <h4 class="product-title fs-14 char-limit-20 blue">Database System Concepts</h4>
+                            <p class="product-publisher fs-12 blue">Abraham Silberschatz</p>
+                            <p class="ratings fs-14">icons 210</p>
+                            <div class="product-type fs-12">Paperback</div>
+                            <div class="product-price fs-14 red">&dollar; 1,023.00</div>
+                            <div>
+                                <a href="https://www.amazon.in/Database-System-Concepts-Abraham-Silberschatz/dp/9390727502/ref=pd_cart_m_crc_scr_cp_faf_d_sccl_1_3/258-1497994-8841464?pd_rd_w=ZYpze&content-id=amzn1.sym.b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_p=b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_r=TC9S1X00TDS9GEV50EAY&pd_rd_wg=qk8mi&pd_rd_r=205beac6-7a08-4e08-a1cf-fc797b9d65f9&pd_rd_i=9390727502&psc=1"><button>Add to Cart</button></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="product-img"><img
+                                src="https://images-eu.ssl-images-amazon.com/images/I/81Vgo2Om+ML._AC_UL100_SR100,100_.jpg"
+                                alt=""
+                            ></div>
+                        <div class="product-desc col">
+                            <h4 class="product-title fs-14 char-limit-20 blue">Discrete Mathematics and Its applications</h4>
+                            <p class="product-publisher fs-12 blue">KENNETH H. ROSEN</p>
+                            <p class="ratings fs-14">icons 402</p>
+                            <div class="product-type fs-12">Paperback</div>
+                            <div class="product-price fs-14 red">&dollar; 1,023.00</div>
+                            <div>
+                                <a href="https://www.amazon.in/Discrete-Mathematics-Its-Applications-SIE/dp/9390727359/ref=pd_cart_m_crc_scr_cp_faf_d_sccl_1_4/258-1497994-8841464?pd_rd_w=ZYpze&content-id=amzn1.sym.b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_p=b6e07b79-2c1f-4860-b518-7cc3a1946db2&pf_rd_r=TC9S1X00TDS9GEV50EAY&pd_rd_wg=qk8mi&pd_rd_r=205beac6-7a08-4e08-a1cf-fc797b9d65f9&pd_rd_i=9390727359&psc=1"><button>Add to Cart</button></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </article>
+        </aside>
+    </main>
+
+    <footer>
+        <a
+            href="#"
+            class="footer-title row aic jcc fs-14"
+        >
+            Back to top
+        </a>
+        <div class="footer-items row jcse">
+            <ul>
+                <h3 class="fs-16 bold">Get to Know Us</h3>
+                <li><a href="#" class="fs-14">About us</a></li>
+                <li><a href="#" class="fs-14">Careers</a></li>
+                <li><a href="#" class="fs-14">Press Release</a></li>
+                <li><a href="#" class="fs-14">Amazon Science</a></li>
+            </ul>
+            <ul>
+                <h3 class="fs-16 bold">Connect with Us</h3>
+                <li><a href="#" class="fs-14">Facebook</a></li>
+                <li><a href="#" class="fs-14">Twitter</a></li>
+                <li><a href="#" class="fs-14">Instagram</a></li>
+            </ul>
+            <ul>
+                <h3 class="fs-16 bold">Make Money with Us</h3>
+                <li><a href="#" class="fs-14">Sell on Amazon</a></li>
+                <li><a href="#" class="fs-14">Sell under Amazon Accelerator</a></li>
+                <li><a href="#" class="fs-14">Protect and Build Your Brand</a></li>
+                <li><a href="#" class="fs-14">Amazon Global Selling</a></li>
+                <li><a href="#" class="fs-14">Become an Affiliate</a></li>
+                <li><a href="#" class="fs-14">Fulfillment by Amazon</a></li>
+                <li><a href="#" class="fs-14">Advertise Your Products</a></li>
+                <li><a href="#" class="fs-14">Amazon Pay on Merchants</a></li>
+            </ul>
+            <ul>
+                <h3 class="fs-16 bold">Let Us Help You</h3>
+                <li><a href="#" class="fs-14">COVID-19 and Amazon</a></li>
+                <li><a href="#" class="fs-14">Your Account</a></li>
+                <li><a href="#" class="fs-14">Return Centre</a></li>
+                <li><a href="#" class="fs-14">100% Purchase Protection</a></li>
+                <li><a href="#" class="fs-14">Amazon App Download</a></li>
+                <li><a href="#" class="fs-14">Help</a></li>
+            </ul>
+        </div>
+
+        <div class="col aic jcc" style="padding-block: 3vmin; background-color: #37475a;">
+          <p class="fs-14" style="color: white;">Made with ❤️ by Alok</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
